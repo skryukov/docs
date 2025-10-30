@@ -39,7 +39,7 @@ With Laravel's Vite integration, asset versioning is done automatically. If you'
 
 If you want to take asset refreshing into your control, you can return a fixed value from the `version` method in the `HandleInertiaRequests` middleware. This disables Inertia's automatic asset versioning.
 
-For example, if you want to notify users when a new version of your frontend is available, you can still expose the actual asset version to the frontend by including it as [shared data](/shared-data).
+For example, if you want to notify users when a new version of your frontend is available, you can still expose the actual asset version to the frontend by including it as [shared data](/v2/data-props/shared-data).
 
 ```php
 class HandleInertiaRequests extends Middleware

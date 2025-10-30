@@ -159,7 +159,7 @@ $response->assertInertia(fn (Assert $page) => $page
 
 ### Testing Partial Reloads
 
-You may use the `reloadOnly` and `reloadExcept` methods to test how your application responds to [partial reloads](/partial-reloads). These methods perform a follow-up request and allow you to make assertions against the response.
+You may use the `reloadOnly` and `reloadExcept` methods to test how your application responds to [partial reloads](/v2/data-props/partial-reloads). These methods perform a follow-up request and allow you to make assertions against the response.
 
 ```php
 $response->assertInertia(fn (Assert $page) => $page
@@ -176,7 +176,7 @@ Instead of passing a single prop as a string, you may also pass an array of prop
 
 ### Testing Deferred Props
 
-You may use the `loadDeferredProps` method to test how your application responds to [deferred props](/deferred-props). This method performs a follow-up request to load the deferred properties and allows you to make assertions against the response.
+You may use the `loadDeferredProps` method to test how your application responds to [deferred props](/v2/data-props/deferred-props). This method performs a follow-up request to load the deferred properties and allows you to make assertions against the response.
 
 ```php
 $response->assertInertia(fn (Assert $page) => $page

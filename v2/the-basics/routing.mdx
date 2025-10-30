@@ -4,11 +4,11 @@ title: Routing
 
 ## Defining routes
 
-When using Inertia, all of your application's routes are defined server-side. This means that you don't need Vue Router or React Router. Instead, you can simply define Laravel routes and return [Inertia responses](/responses) from those routes.
+When using Inertia, all of your application's routes are defined server-side. This means that you don't need Vue Router or React Router. Instead, you can simply define Laravel routes and return [Inertia responses](/v2/the-basics/responses) from those routes.
 
 ## Shorthand routes
 
-If you have a [page](/pages) that doesn't need a corresponding controller method, like an "FAQ" or "about" page, you can route directly to a component via the `Route::inertia()` method.
+If you have a [page](/v2/the-basics/pages) that doesn't need a corresponding controller method, like an "FAQ" or "about" page, you can route directly to a component via the `Route::inertia()` method.
 
 ```php
 Route::inertia('/about', 'About');
@@ -48,7 +48,7 @@ If you're using the Vue plugin included with Ziggy, you may use the `route()`fun
 <a :href="route('users.create')">Create User</a>
 ```
 
-When [server-side rendering](/server-side-rendering) is enabled, you may pass an options object to the Ziggy plugin in your `ssr.js` file. This should include the route definitions and current location.
+When [server-side rendering](/v2/advanced/server-side-rendering) is enabled, you may pass an options object to the Ziggy plugin in your `ssr.js` file. This should include the route definitions and current location.
 
 ```js
 .use(ZiggyVue, {

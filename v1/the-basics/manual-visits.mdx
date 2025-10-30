@@ -4,7 +4,7 @@ title: Manual visits
 
 <Warning>This is documentation for Inertia.js v1, which is no longer actively maintained. Please refer to the <a href="/v2/getting-started">v2 docs</a> for the latest information.</Warning>
 
-In addition to [creating links](/links), it's also possible to manually make Inertia visits / requests programmatically via JavaScript. This is accomplished via the `router.visit()` method.
+In addition to [creating links](/v1/the-basics/links), it's also possible to manually make Inertia visits / requests programmatically via JavaScript. This is accomplished via the `router.visit()` method.
 
 <CodeGroup>
 
@@ -380,7 +380,7 @@ router.post('/companies', data, {
 
 </CodeGroup>
 
-For more information on uploading files, please consult the dedicated [file uploads](/file-uploads)documentation.
+For more information on uploading files, please consult the dedicated [file uploads](/v1/the-basics/file-uploads)documentation.
 
 ## Browser history
 
@@ -624,7 +624,7 @@ router.post('/users', data, {
 
 </CodeGroup>
 
-For more information regarding this feature, please consult the [scroll management](/scroll-management) documentation.
+For more information regarding this feature, please consult the [scroll management](/v1/advanced/scroll-management) documentation.
 
 ## Partial reloads
 
@@ -658,7 +658,7 @@ router.visit('/users', { search: 'John' }, { only: ['users'] })
 
 </CodeGroup>
 
-For more information on this feature, please consult the [partial reloads](/partial-reloads)documentation.
+For more information on this feature, please consult the [partial reloads](/v1/advanced/partial-reloads)documentation.
 
 ## Visit cancellation
 
@@ -716,7 +716,7 @@ The `onCancel()` and `onFinish()` event callbacks will be executed when a visit 
 
 ## Event callbacks
 
-In addition to Inertia's [global events](/events), Inertia also provides a number of per-visit event callbacks.
+In addition to Inertia's [global events](/v1/advanced/events), Inertia also provides a number of per-visit event callbacks.
 
 <CodeGroup>
 

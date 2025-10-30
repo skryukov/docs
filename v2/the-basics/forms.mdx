@@ -374,7 +374,7 @@ The `errors` object uses dotted notation for nested fields, allowing you to disp
 
 ### Props and options
 
-In addition to `action` and `method`, the `<Form>` component accepts several props. Many of them are identical to the options available in Inertia's [visit options](/manual-visits).
+In addition to `action` and `method`, the `<Form>` component accepts several props. Many of them are identical to the options available in Inertia's [visit options](/v2/the-basics/manual-visits).
 
 <CodeGroup>
 
@@ -488,7 +488,7 @@ form[inert] {
 
 ### Events
 
-The `<Form>` component emits all the standard visit [events](/events) for form submissions.
+The `<Form>` component emits all the standard visit [events](/v2/advanced/events) for form submissions.
 
 <CodeGroup>
 
@@ -1030,7 +1030,7 @@ $form.delete(url, options)
 
 </CodeGroup>
 
-The submit methods support all of the typical [visit options](/manual-visits), such as `preserveState`, `preserveScroll`, and event callbacks, which can be helpful for performing tasks on successful form submissions. For example, you might use the `onSuccess` callback to reset inputs to their original state.
+The submit methods support all of the typical [visit options](/v2/the-basics/manual-visits), such as `preserveState`, `preserveScroll`, and event callbacks, which can be helpful for performing tasks on successful form submissions. For example, you might use the `onSuccess` callback to reset inputs to their original state.
 
 <CodeGroup>
 
@@ -1166,7 +1166,7 @@ const { errors } = useForm({ ... })
 
 </CodeGroup>
 
-For a more thorough discussion of form validation and errors, please consult the [validation documentation](/validation).
+For a more thorough discussion of form validation and errors, please consult the [validation documentation](/v2/the-basics/validation).
 
 To determine if a form has any errors, you may use the `hasErrors` property. To clear form errors, use the `clearErrors()` method.
 
@@ -1411,7 +1411,7 @@ $form.cancel()
 
 ### Form data and history state
 
-To instruct Inertia to store a form's data and errors in [history state](/remembering-state), you can provide a unique form key as the first argument when instantiating your form.
+To instruct Inertia to store a form's data and errors in [history state](/v2/data-props/remembering-state), you can provide a unique form key as the first argument when instantiating your form.
 
 <CodeGroup>
 
@@ -1484,7 +1484,7 @@ form.submit(store())
 
 ## Server-side responses
 
-When using Inertia, you don't typically inspect form responses client-side like you would with traditional XHR/fetch requests. Instead, your server-side route or controller issues a [redirect](/redirects)response after processing the form, often redirecting to a success page.
+When using Inertia, you don't typically inspect form responses client-side like you would with traditional XHR/fetch requests. Instead, your server-side route or controller issues a [redirect](/v2/the-basics/redirects)response after processing the form, often redirecting to a success page.
 
 ```php
 class UsersController extends Controller
@@ -1517,7 +1517,7 @@ Both the `<Form>` component and `useForm` helper automatically handle server-sid
 
 Unlike traditional XHR/fetch requests where you might check for a `422` status code, Inertia handles validation errors as part of its redirect-based flow, just like classic server-side form submissions, but without the full page reload.
 
-For a complete guide on validation error handling, including error bags and advanced scenarios, see the [validation documentation](/validation).
+For a complete guide on validation error handling, including error bags and advanced scenarios, see the [validation documentation](/v2/the-basics/validation).
 
 ## Manual form submissions
 
@@ -1658,7 +1658,7 @@ export default function Edit() {
 
 When making requests or form submissions that include files, Inertia will automatically convert the request data into a `FormData` object. This works with the `<Form>` component, `useForm` helper, and manual router submissions.
 
-For more information on file uploads, including progress tracking, see the [file uploads documentation](/file-uploads).
+For more information on file uploads, including progress tracking, see the [file uploads documentation](/v2/the-basics/file-uploads).
 
 ## XHR / fetch submissions
 

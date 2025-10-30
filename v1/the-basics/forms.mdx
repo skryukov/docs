@@ -6,7 +6,7 @@ title: Forms
 
 ## Submitting forms
 
-While it's possible to make classic HTML form submissions with Inertia, it's not recommended since they cause full-page reloads. Instead, it's better to intercept form submissions and then make the [request using Inertia](/manual-visits).
+While it's possible to make classic HTML form submissions with Inertia, it's not recommended since they cause full-page reloads. Instead, it's better to intercept form submissions and then make the [request using Inertia](/v1/the-basics/manual-visits).
 
 <CodeGroup>
 
@@ -146,7 +146,7 @@ export default function Edit() {
 
 As you may have noticed in the example above, when using Inertia, you don't typically need to inspect form responses client-side like you would when making XHR / fetch requests manually.
 
-Instead, your server-side route / controller typically issues a [redirect](/redirects) response. And, Of course, there is nothing stopping you from redirecting the user right back to the page they were previously on. Using this approach, handling Inertia form submissions feels very similar to handling classic HTML form submissions.
+Instead, your server-side route / controller typically issues a [redirect](/v1/the-basics/redirects) response. And, Of course, there is nothing stopping you from redirecting the user right back to the page they were previously on. Using this approach, handling Inertia form submissions feels very similar to handling classic HTML form submissions.
 
 ```php
 class UsersController extends Controller
@@ -177,7 +177,7 @@ Handling server-side validation errors in Inertia works a little different than 
 
 However, when using Inertia, a `422` response is never returned by your server. Instead, as we saw in the example above, your routes / controllers will typically return a redirect response - much like a classic, full-page form submission.
 
-For a full discussion on handling and displaying validation errors with Inertia, please consult the [validation](/validation) documentation.
+For a full discussion on handling and displaying validation errors with Inertia, please consult the [validation](/v1/the-basics/validation) documentation.
 
 ## Form helper
 
@@ -346,7 +346,7 @@ $form.delete(url, options)
 
 </CodeGroup>
 
-The submit methods support all of the typical [visit options](/manual-visits), such as `preserveState`, `preserveScroll`, and event callbacks, which can be helpful for performing tasks on successful form submissions. For example, you might use the `onSuccess` callback to reset inputs to their original state.
+The submit methods support all of the typical [visit options](/v1/the-basics/manual-visits), such as `preserveState`, `preserveScroll`, and event callbacks, which can be helpful for performing tasks on successful form submissions. For example, you might use the `onSuccess` callback to reset inputs to their original state.
 
 <CodeGroup>
 
@@ -510,7 +510,7 @@ const { errors } = useForm({ ... })
 
 </CodeGroup>
 
-For a more thorough discussion of form validation and errors, please consult the [validation documentation](/validation).
+For a more thorough discussion of form validation and errors, please consult the [validation documentation](/v1/the-basics/validation).
 
 To determine if a form has any errors, you may use the `hasErrors` property. To clear form errors, use the `clearErrors()` method.
 
@@ -762,7 +762,7 @@ $form.cancel()
 
 </CodeGroup>
 
-To instruct Inertia to store a form's data and errors in [history state](/remembering-state), you can provide a unique form key as the first argument when instantiating your form.
+To instruct Inertia to store a form's data and errors in [history state](/v1/advanced/remembering-state), you can provide a unique form key as the first argument when instantiating your form.
 
 <CodeGroup>
 
@@ -800,7 +800,7 @@ const form = useForm(`EditUser:\${user.id}\
 
 When making requests or form submissions that include files, Inertia will automatically convert the request data into a `FormData` object.
 
-For a more thorough discussion of file uploads, please consult the [file uploads documentation](/file-uploads).
+For a more thorough discussion of file uploads, please consult the [file uploads documentation](/v1/the-basics/file-uploads).
 
 ## XHR / fetch submissions
 
