@@ -26,14 +26,12 @@ class UsersController extends Controller
     public function index()
     {
         return Inertia::render('Users/Index', [
-            'users' => User::all()->map(function ($user) {
-                return [
-                    'id' => $user->id,
-                    'name' => $user->name,
-                    'email' => $user->email,
-                    'edit_url' => route('users.edit', $user),
-                ];
-            }),
+            'users' => User::all()->map(fn ($user) => [
+                'id' => $user->id,
+                'name' => $user->name,
+                'email' => $user->email,
+                'edit_url' => route('users.edit', $user),
+            ]),
             'create_url' => route('users.create'),
         ]);
     }
@@ -52,8 +50,8 @@ When [server-side rendering](/v2/advanced/server-side-rendering) is enabled, you
 
 ```js
 .use(ZiggyVue, {
-...page.props.ziggy,
-location: new URL(page.props.ziggy.location),
+    ...page.props.ziggy,
+    location: new URL(page.props.ziggy.location),
 });
 ```
 
@@ -66,12 +64,12 @@ If you need to customize how the URL is resolved, you may provide a resolver wit
 ```php
 class HandleInertiaRequests extends Middleware
 {
-public function urlResolver()
-{
-return function (Request $request) {
-// Return the URL for the request...
-};
-}
+    public function urlResolver()
+    {
+        return function (Request $request) {
+            // Return the URL for the request...
+        };
+    }
 }
 ```
 
@@ -79,6 +77,6 @@ Alternatively, you may define the resolver using the `Inertia::resolveUrlUsing()
 
 ```php
 Inertia::resolveUrlUsing(function (Request $request) {
-// Return the URL for the request...
+    // Return the URL for the request...
 });
 ```

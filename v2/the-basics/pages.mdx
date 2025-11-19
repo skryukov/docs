@@ -2,9 +2,9 @@
 title: Pages
 ---
 
-import { VueSpecific } from "/snippets/vue-specific.jsx"
 import { ReactSpecific } from "/snippets/react-specific.jsx"
 import { SvelteSpecific } from "/snippets/svelte-specific.jsx"
+import { VueSpecific } from "/snippets/vue-specific.jsx"
 
 When building applications using Inertia, each page in your application typically has its own controller / route and a corresponding JavaScript component. This allows you to retrieve just the data necessary for that page - no API required.
 
@@ -358,14 +358,19 @@ export default Home
 
 </CodeGroup>
 
-<VueSpecific>If you're using Vue 3.3+, you can alternatively use [defineOptions](https://vuejs.org/api/sfc-script-setup.html#defineoptions) to define a layout within `<script setup>`. Older versions of Vue can use the [defineOptions plugin](https://vue-macros.sxzz.moe/macros/define-options.html):
+<VueSpecific>
+
+If you're using Vue 3.3+, you can alternatively use [defineOptions](https://vuejs.org/api/sfc-script-setup.html#defineoptions) to define a layout within `<script setup>`. Older versions of Vue can use the [defineOptions plugin](https://vue-macros.sxzz.moe/macros/define-options.html):
 
 ```html
 <script setup>
 import Layout from './Layout'
 defineOptions({ layout: Layout })
 </script>
-```</VueSpecific>## Default layouts
+```
+</VueSpecific>
+
+## Default layouts
 
 If you're using persistent layouts, you may find it convenient to define the default page layout in the `resolve()` callback of your application's main JavaScript file.
 
