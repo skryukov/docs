@@ -44,16 +44,17 @@ For example, if you want to notify users when a new version of your frontend is 
 ```php
 class HandleInertiaRequests extends Middleware
 {
-public function version(Request $request)
-{
-return null;
-}
-public function share(Request $request)
-{
-return array_merge(parent::share($request), [
-'version' => parent::version($request),
-]);
-}
+    public function version(Request $request)
+    {
+        return null;
+    }
+
+    public function share(Request $request)
+    {
+        return array_merge(parent::share($request), [
+            'version' => parent::version($request),
+        ]);
+    }
 }
 ```
 

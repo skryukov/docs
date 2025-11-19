@@ -16,28 +16,28 @@ Vite enables code splitting (or lazy-loading as they call it) by default when us
 
 ```diff Vue icon="vuejs"
   resolve: name => {
-\-   const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
-\-   return pages[`./Pages/${name}.vue`]
-\+   const pages = import.meta.glob('./Pages/**/*.vue')
-\+   return pages[`./Pages/${name}.vue`]()
+-   const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
+-   return pages[`./Pages/${name}.vue`]
++   const pages = import.meta.glob('./Pages/**/*.vue')
++   return pages[`./Pages/${name}.vue`]()
   },
 ```
 
 ```diff React icon="react"
   resolve: name => {
-\-   const pages = import.meta.glob('./Pages/**/*.jsx', { eager: true })
-\-   return pages[`./Pages/${name}.jsx`]
-\+   const pages = import.meta.glob('./Pages/**/*.jsx')
-\+   return pages[`./Pages/${name}.jsx`]()
+-   const pages = import.meta.glob('./Pages/**/*.jsx', { eager: true })
+-   return pages[`./Pages/${name}.jsx`]
++   const pages = import.meta.glob('./Pages/**/*.jsx')
++   return pages[`./Pages/${name}.jsx`]()
   },
 ```
 
 ```diff Svelte icon="s"
   resolve: name => {
-\-   const pages = import.meta.glob('./Pages/**/*.svelte', { eager: true })
-\-   return pages[`./Pages/${name}.svelte`]
-\+   const pages = import.meta.glob('./Pages/**/*.svelte')
-\+   return pages[`./Pages/${name}.svelte`]()
+-   const pages = import.meta.glob('./Pages/**/*.svelte', { eager: true })
+-   return pages[`./Pages/${name}.svelte`]
++   const pages = import.meta.glob('./Pages/**/*.svelte')
++   return pages[`./Pages/${name}.svelte`]()
   },
 ```
 
@@ -55,7 +55,7 @@ Next, create a `.babelrc` file in your project with the following configuration:
 
 ```json
 {
-"plugins": ["@babel/plugin-syntax-dynamic-import"]
+    "plugins": ["@babel/plugin-syntax-dynamic-import"]
 }
 ```
 
@@ -66,18 +66,18 @@ Finally, update the `resolve` callback in your app's initialization code to use 
 <CodeGroup>
 
 ```diff Vue icon="vuejs"
-\- resolve: name => require(`./Pages/${name}`),
-\+ resolve: name => import(`./Pages/${name}`),
+- resolve: name => require(`./Pages/${name}`),
++ resolve: name => import(`./Pages/${name}`),
 ```
 
 ```diff React icon="react"
-\- resolve: name => require(`./Pages/${name}`),
-\+ resolve: name => import(`./Pages/${name}`),
+- resolve: name => require(`./Pages/${name}`),
++ resolve: name => import(`./Pages/${name}`),
 ```
 
 ```diff Svelte icon="s"
-\- resolve: name => require(`./Pages/${name}.svelte`),
-\+ resolve: name => import(`./Pages/${name}.svelte`),
+- resolve: name => require(`./Pages/${name}.svelte`),
++ resolve: name => import(`./Pages/${name}.svelte`),
 ```
 
 </CodeGroup>
@@ -86,6 +86,6 @@ You should also consider using cache busting to force browsers to load the lates
 
 ```js
 output: {
-chunkFilename: 'js/[name].js?id=[chunkhash]',
+    chunkFilename: 'js/[name].js?id=[chunkhash]',
 }
 ```

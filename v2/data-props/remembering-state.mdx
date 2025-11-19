@@ -75,7 +75,6 @@ export default function Profile() {
     first_name: null,
     last_name: null,
   }, 'Users/Create')
-
 }
 ```
 
@@ -137,21 +136,21 @@ If you're using the [Inertia form helper](/forms#form-helper), you can pass a un
 import { useForm } from '@inertiajs/vue3'
 
 const form = useForm('CreateUser', data)
-const form = useForm(`EditUser:${props.user.id}\
+const form = useForm(`EditUser:${props.user.id}`, data)
 ```
 
 ```js React icon="react"
 import { useForm } from '@inertiajs/react'
 
 const form = useForm('CreateUser', data)
-const form = useForm(`EditUser:${user.id}\
+const form = useForm(`EditUser:${user.id}`, data)
 ```
 
 ```js Svelte icon="s"
 import { useForm } from '@inertiajs/svelte'
 
 const form = useForm('CreateUser', data)
-const form = useForm(`EditUser:${user.id}\
+const form = useForm(`EditUser:${user.id}`, data)
 ```
 
 </CodeGroup>
