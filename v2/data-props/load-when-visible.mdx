@@ -20,7 +20,7 @@ import { WhenVisible } from '@inertiajs/vue3'
         </template>
 
         <div v-for="permission in permissions">
-            \<!-- ... -->
+            <!-- ... -->
         </div>
     </WhenVisible>
 </template>
@@ -49,7 +49,7 @@ export default () => (
     </svelte:fragment>
 
     {#each permissions as permission}
-        \<!-- ... -->
+        <!-- ... -->
     {/each}
 </WhenVisible>
 ```
@@ -67,7 +67,7 @@ export default () => (
     {/snippet}
 
     {#each permissions as permission}
-        \<!-- ... -->
+        <!-- ... -->
     {/each}
 </WhenVisible>
 ```
@@ -89,7 +89,7 @@ import { WhenVisible } from '@inertiajs/vue3'
             <div>Loading...</div>
         </template>
 
-        \<!-- Props are now loaded -->
+        <!-- Props are now loaded -->
     </WhenVisible>
 </template>
 ```
@@ -117,7 +117,7 @@ export default () => (
         <div>Loading...</div>
     </svelte:fragment>
 
-    \<!-- Props are now loaded -->
+    <!-- Props are now loaded -->
 </WhenVisible>
 ```
 
@@ -133,7 +133,7 @@ export default () => (
         <div>Loading...</div>
     {/snippet}
 
-    \<!-- Props are now loaded -->
+    <!-- Props are now loaded -->
 </WhenVisible>
 ```
 
@@ -157,7 +157,7 @@ import { WhenVisible } from '@inertiajs/vue3'
         </template>
 
         <div v-for="permission in permissions">
-            \<!-- ... -->
+            <!-- ... -->
         </div>
     </WhenVisible>
 </template>
@@ -186,7 +186,7 @@ export default () => (
     </svelte:fragment>
 
     {#each permissions as permission}
-        \<!-- ... -->
+        <!-- ... -->
     {/each}
 </WhenVisible>
 ```
@@ -204,7 +204,7 @@ export default () => (
     {/snippet}
 
     {#each permissions as permission}
-        \<!-- ... -->
+        <!-- ... -->
     {/each}
 </WhenVisible>
 ```
@@ -224,7 +224,7 @@ import { WhenVisible } from '@inertiajs/vue3'
 
 <template>
     <WhenVisible data="products" as="span">
-        \<!-- ... -->
+        <!-- ... -->
     </WhenVisible>
 </template>
 ```
@@ -247,7 +247,7 @@ export default () => (
 </script>
 
 <WhenVisible data="products" as="span">
-    \<!-- ... -->
+    <!-- ... -->
 </WhenVisible>
 ```
 
@@ -259,7 +259,7 @@ export default () => (
 </script>
 
 <WhenVisible data="products" as="span">
-    \<!-- ... -->
+    <!-- ... -->
 </WhenVisible>
 ```
 
@@ -282,7 +282,7 @@ import { WhenVisible } from '@inertiajs/vue3'
 
 <template>
     <WhenVisible data="products" always>
-        \<!-- ... -->
+        <!-- ... -->
     </WhenVisible>
 </template>
 ```
@@ -305,7 +305,7 @@ export default () => (
 </script>
 
 <WhenVisible data="products" always>
-    \<!-- ... -->
+    <!-- ... -->
 </WhenVisible>
 ```
 
@@ -317,7 +317,7 @@ export default () => (
 </script>
 
 <WhenVisible data="products" always>
-    \<!-- ... -->
+    <!-- ... -->
 </WhenVisible>
 ```
 
@@ -347,11 +347,11 @@ function submit() {
 
 <template>
     <form @submit.prevent="submit">
-        \<!-- ... -->
+        <!-- ... -->
     </form>
 
     <WhenVisible data="permissions">
-        \<!-- ... -->
+        <!-- ... -->
     </WhenVisible>
 </template>
 ```
@@ -373,7 +373,7 @@ export default function CreateUser() {
     }
 
     return (
-        
+
             <form onSubmit={submit}>
                 {/* ... */}
             </form>
@@ -381,7 +381,7 @@ export default function CreateUser() {
             <WhenVisible data="permissions">
                 {/* ... */}
             </WhenVisible>
-        
+
     )
 }
 ```
@@ -403,11 +403,11 @@ export default function CreateUser() {
 </script>
 
 <form on:submit|preventDefault={submit}>
-    \<!-- ... -->
+    <!-- ... -->
 </form>
 
 <WhenVisible data="permissions">
-    \<!-- ... -->
+    <!-- ... -->
 </WhenVisible>
 ```
 
@@ -428,11 +428,11 @@ export default function CreateUser() {
 </script>
 
 <form onsubmit={submit}>
-    \<!-- ... -->
+    <!-- ... -->
 </form>
 
 <WhenVisible data="permissions">
-    \<!-- ... -->
+    <!-- ... -->
 </WhenVisible>
 ```
 

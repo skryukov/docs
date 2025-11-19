@@ -631,14 +631,14 @@ The `Form` component provides several attributes that allow you to reset the for
 <CodeGroup>
 
 ```html Vue icon="vuejs"
-\<!-- Reset the entire form on success -->
+<!-- Reset the entire form on success -->
 <Form action="/users" method="post" resetOnSuccess>
   <input type="text" name="name" />
   <input type="email" name="email" />
   <button type="submit">Submit</button>
 </Form>
 
-\<!-- Reset specific fields on success -->
+<!-- Reset specific fields on success -->
 <Form action="/users" method="post" :resetOnSuccess="['name']">
   <input type="text" name="name" />
   <input type="email" name="email" />
@@ -663,14 +663,14 @@ The `Form` component provides several attributes that allow you to reset the for
 ```
 
 ```html Svelte icon="s"
-\<!-- Reset the entire form on success -->
+<!-- Reset the entire form on success -->
 <Form action="/users" method="post" resetOnSuccess>
   <input type="text" name="name" />
   <input type="email" name="email" />
   <button type="submit">Submit</button>
 </Form>
 
-\<!-- Reset specific fields on success -->
+<!-- Reset specific fields on success -->
 <Form action="/users" method="post" resetOnSuccess={['name']}>
   <input type="text" name="name" />
   <input type="email" name="email" />
@@ -685,14 +685,14 @@ The `Form` component provides several attributes that allow you to reset the for
 <CodeGroup>
 
 ```html Vue icon="vuejs"
-\<!-- Reset the entire form on success -->
+<!-- Reset the entire form on success -->
 <Form action="/users" method="post" resetOnError>
   <input type="text" name="name" />
   <input type="email" name="email" />
   <button type="submit">Submit</button>
 </Form>
 
-\<!-- Reset specific fields on success -->
+<!-- Reset specific fields on success -->
 <Form action="/users" method="post" :resetOnError="['name']">
   <input type="text" name="name" />
   <input type="email" name="email" />
@@ -717,14 +717,14 @@ The `Form` component provides several attributes that allow you to reset the for
 ```
 
 ```html Svelte icon="s"
-\<!-- Reset the entire form on success -->
+<!-- Reset the entire form on success -->
 <Form action="/users" method="post" resetOnError>
   <input type="text" name="name" />
   <input type="email" name="email" />
   <button type="submit">Submit</button>
 </Form>
 
-\<!-- Reset specific fields on success -->
+<!-- Reset specific fields on success -->
 <Form action="/users" method="post" resetOnError={['name']}>
   <input type="text" name="name" />
   <input type="email" name="email" />
@@ -950,15 +950,15 @@ const form = useForm({
 
 <template>
   <form @submit.prevent="form.post('/login')">
-    \<!-- email -->
+    <!-- email -->
     <input type="text" v-model="form.email">
     <div v-if="form.errors.email">{{ form.errors.email }}</div>
-    \<!-- password -->
+    <!-- password -->
     <input type="password" v-model="form.password">
     <div v-if="form.errors.password">{{ form.errors.password }}</div>
-    \<!-- remember me -->
+    <!-- remember me -->
     <input type="checkbox" v-model="form.remember"> Remember Me
-    \<!-- submit -->
+    <!-- submit -->
     <button type="submit" :disabled="form.processing">Login</button>
   </form>
 </template>
@@ -1152,7 +1152,7 @@ You can use the `processing` property to track if a form is currently being subm
 
 <CodeGroup>
 
-```jsx Vue icon="vuejs"
+```vue Vue icon="vuejs"
 <button type="submit" :disabled="form.processing">Submit</button>
 ```
 
@@ -1172,7 +1172,7 @@ If your form is uploading files, the current progress event is available via the
 
 <CodeGroup>
 
-```jsx Vue icon="vuejs"
+```vue Vue icon="vuejs"
 <progress v-if="form.progress" :value="form.progress.percentage" max="100">
   {{ form.progress.percentage }}%
 </progress>
@@ -1204,7 +1204,7 @@ If there are form validation errors, they are available via the `errors` propert
 
 <CodeGroup>
 
-```jsx Vue icon="vuejs"
+```vue Vue icon="vuejs"
 <div v-if="form.errors.email">{{ form.errors.email }}</div>
 ```
 

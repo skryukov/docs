@@ -2,6 +2,8 @@
 title: View Transitions
 ---
 
+<Badge>v2.2.13+</Badge>
+
 Inertia supports the [View Transitions API](https://developer.chrome.com/docs/web-platform/view-transitions), allowing you to animate page transitions.
 
 The View Transitions API is a [relatively new browser feature](https://caniuse.com/view-transitions). Inertia gracefully falls back to standard page transitions in browsers that don't support the API.
@@ -34,7 +36,7 @@ router.visit('/another-page', { viewTransition: true })
 
 ## Transition callbacks
 
-You may also pass a callback to the `viewTransition` option, which will receive the standard [`ViewTransition`](https://developer.mozilla.org/en-US/docs/Web/API/ViewTransition)instance provided by the browser. This allows you to hook into the various promises provided by the API.
+You may also pass a callback to the `viewTransition` option, which will receive the standard [`ViewTransition`](https://developer.mozilla.org/en-US/docs/Web/API/ViewTransition) instance provided by the browser. This allows you to hook into the various promises provided by the API.
 
 <CodeGroup>
 
@@ -82,7 +84,7 @@ The `viewTransition` option is also available on the `Link` component.
 
 <CodeGroup>
 
-```jsx Vue icon="vuejs"
+```vue Vue icon="vuejs"
 import { Link } from '@inertiajs/vue3'
 
 <a href="/another-page" view-transition>Navigate</a>
@@ -106,13 +108,13 @@ You may also pass a callback to access the `ViewTransition` instance.
 
 <CodeGroup>
 
-```jsx Vue icon="vuejs"
+```vue Vue icon="vuejs"
 import { Link } from '@inertiajs/vue3'
 
 <a
   href="/another-page"
   :view-transition="(transition) => transition.finished.then(() => console.log('Done'))"
-\>
+>
   Navigate
 </a>
 ```
@@ -123,7 +125,7 @@ import { Link } from '@inertiajs/react'
 <a
   href="/another-page"
   viewTransition={(transition) => transition.finished.then(() => console.log('Done'))}
-\>
+>
   Navigate
 </a>
 ```
@@ -134,7 +136,7 @@ import { Link } from '@inertiajs/svelte'
 <a
   href="/another-page"
   viewTransition={(transition) => transition.finished.then(() => console.log('Done'))}
-\>
+>
   Navigate
 </a>
 ```
@@ -194,24 +196,24 @@ You may customize the transition animations using CSS. The View Transitions API 
 
 ```css
 @keyframes fade-in {
-from { opacity: 0; }
+    from { opacity: 0; }
 }
 @keyframes fade-out {
-to { opacity: 0; }
+    to { opacity: 0; }
 }
 @keyframes slide-from-right {
-from { transform: translateX(30px); }
+    from { transform: translateX(30px); }
 }
 @keyframes slide-to-left {
-to { transform: translateX(-30px); }
+    to { transform: translateX(-30px); }
 }
 ::view-transition-old(root) {
-animation: 90ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
-300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
+    animation: 90ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
+    300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
 }
 ::view-transition-new(root) {
-animation: 210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
-300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
+    animation: 210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
+    300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
 }
 ```
 
@@ -219,8 +221,8 @@ You may also animate individual elements between pages by assigning them a uniqu
 
 <CodeGroup>
 
-```jsx Vue icon="vuejs"
-\<!-- Profile.vue -->
+```vue Vue icon="vuejs"
+<!-- Profile.vue -->
 <template>
   <img src="/avatar.jpg" alt="User" class="avatar-large" />
 </template>
@@ -233,7 +235,7 @@ You may also animate individual elements between pages by assigning them a uniqu
 }
 </style>
 
-\<!-- Dashboard.vue -->
+<!-- Dashboard.vue -->
 <template>
   <img src="/avatar.jpg" alt="User" class="avatar-small" />
 </template>
@@ -274,7 +276,7 @@ export default function Dashboard() {
 ```
 
 ```html Svelte icon="s"
-\<!-- Profile.svelte -->
+<!-- Profile.svelte -->
 <img src="/avatar.jpg" alt="User" class="avatar-large" />
 
 <style>
@@ -285,7 +287,7 @@ export default function Dashboard() {
 }
 </style>
 
-\<!-- Dashboard.svelte -->
+<!-- Dashboard.svelte -->
 <img src="/avatar.jpg" alt="User" class="avatar-small" />
 
 <style>

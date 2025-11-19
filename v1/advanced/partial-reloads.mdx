@@ -16,7 +16,7 @@ To perform a partial reload, use the `only` visit option to specify which data t
 
 <CodeGroup>
 
-```js Vue 2 
+```js Vue 2
 import { router } from '@inertiajs/vue2'
 
 router.visit(url, {
@@ -24,7 +24,7 @@ router.visit(url, {
 })
 ```
 
-```js Vue 3 
+```js Vue 3
 import { router } from '@inertiajs/vue3'
 
 router.visit(url, {
@@ -56,7 +56,7 @@ In addition to the `only` visit option you can also use the `except` option to s
 
 <CodeGroup>
 
-```js Vue 2 
+```js Vue 2
 import { router } from '@inertiajs/vue2'
 
 router.visit(url, {
@@ -64,7 +64,7 @@ router.visit(url, {
 })
 ```
 
-```js Vue 3 
+```js Vue 3
 import { router } from '@inertiajs/vue3'
 
 router.visit(url, {
@@ -96,13 +96,13 @@ Since partial reloads can only be made to the same page component the user is al
 
 <CodeGroup>
 
-```js Vue 2 
+```js Vue 2
 import { router } from '@inertiajs/vue2'
 
 router.reload({ only: ['users'] })
 ```
 
-```js Vue 3 
+```js Vue 3
 import { router } from '@inertiajs/vue3'
 
 router.reload({ only: ['users'] })
@@ -128,13 +128,13 @@ It's also possible to perform partial reloads with Inertia links using the `only
 
 <CodeGroup>
 
-```jsx Vue 2 
+```vue Vue 2
 import { Link } from '@inertiajs/vue2'
 
 <a href="/users?active=true" :only="['users']">Show active</a>
 ```
 
-```jsx Vue 3 
+```vue Vue 3
 import { Link } from '@inertiajs/vue3'
 
 <a href="/users?active=true" :only="['users']">Show active</a>

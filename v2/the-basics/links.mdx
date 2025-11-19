@@ -10,7 +10,7 @@ To create an Inertia link, use the Inertia `<Link>` component. Any attributes yo
 
 <CodeGroup>
 
-```jsx Vue icon="vuejs"
+```vue Vue icon="vuejs"
 import { Link } from '@inertiajs/vue3'
 
 <Link href="/">Home</Link>
@@ -36,7 +36,7 @@ By default, Inertia renders links as anchor `<a>` elements. However, you can cha
 
 <CodeGroup>
 
-```jsx Vue icon="vuejs"
+```vue Vue icon="vuejs"
 import { Link } from '@inertiajs/vue3'
 
 <Link href="/logout" method="post" as="button">Logout</Link>
@@ -75,7 +75,7 @@ You can specify the HTTP request method for an Inertia link request using the `m
 
 <CodeGroup>
 
-```jsx Vue icon="vuejs"
+```vue Vue icon="vuejs"
 import { Link } from '@inertiajs/vue3'
 
 <Link href="/logout" method="post" as="button">Logout</Link>
@@ -105,7 +105,7 @@ When using [Wayfinder](https://github.com/laravel/wayfinder) in conjunction with
 
 <CodeGroup>
 
-```jsx Vue icon="vuejs"
+```vue Vue icon="vuejs"
 import { Link } from '@inertiajs/vue3'
 import { show } from 'App/Http/Controllers/UserController'
 
@@ -136,7 +136,7 @@ When making `POST` or `PUT` requests, you may wish to add additional data to the
 
 <CodeGroup>
 
-```jsx Vue icon="vuejs"
+```vue Vue icon="vuejs"
 import { Link } from '@inertiajs/vue3'
 
 <Link href="/endpoint" method="post" :data="{ foo: bar }">Save</Link>
@@ -164,7 +164,7 @@ The `headers` prop allows you to add custom headers to an Inertia link. However,
 
 <CodeGroup>
 
-```jsx Vue icon="vuejs"
+```vue Vue icon="vuejs"
 import { Link } from '@inertiajs/vue3'
 
 <Link href="/endpoint" :headers="{ foo: bar }">Save</Link>
@@ -192,7 +192,7 @@ The `replace` prop allows you to specify the browser's history behavior. By defa
 
 <CodeGroup>
 
-```jsx Vue icon="vuejs"
+```vue Vue icon="vuejs"
 import { Link } from '@inertiajs/vue3'
 
 <Link href="/" replace>Home</Link>
@@ -220,7 +220,7 @@ You can preserve a page component's local state using the `preserve-state` prop.
 
 <CodeGroup>
 
-```jsx Vue icon="vuejs"
+```vue Vue icon="vuejs"
 import { Link } from '@inertiajs/vue3'
 
 <input v-model="query" type="text" />
@@ -254,7 +254,7 @@ You can use the `preserveScroll` prop to prevent Inertia from automatically rese
 
 <CodeGroup>
 
-```jsx Vue icon="vuejs"
+```vue Vue icon="vuejs"
 import { Link } from '@inertiajs/vue3'
 
 <Link href="/" preserve-scroll>Home</Link>
@@ -284,7 +284,7 @@ The `only` prop allows you to specify that only a subset of a page's props (data
 
 <CodeGroup>
 
-```jsx Vue icon="vuejs"
+```vue Vue icon="vuejs"
 import { Link } from '@inertiajs/vue3'
 
 <Link href="/users?active=true" :only="['users']">Show active</Link>
@@ -314,7 +314,7 @@ You may enable [View transitions](/v2/the-basics/view-transitions) for a link by
 
 <CodeGroup>
 
-```jsx Vue icon="vuejs"
+```vue Vue icon="vuejs"
 import { Link } from '@inertiajs/vue3'
 
 <Link href="/another-page" view-transition>Navigate</Link>
@@ -340,7 +340,7 @@ It's common to set an active state for navigation links based on the current pag
 
 <CodeGroup>
 
-```jsx Vue icon="vuejs"
+```vue Vue icon="vuejs"
 import { Link } from '@inertiajs/vue3'
 
 // URL exact match...

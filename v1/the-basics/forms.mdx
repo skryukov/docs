@@ -188,15 +188,15 @@ Since working with forms is so common, Inertia includes a form helper designed t
 ```html Vue 2
 <template>
   <form @submit.prevent="form.post('/login')">
-    \<!-- email -->
+    <!-- email -->
     <input type="text" v-model="form.email">
     <div v-if="form.errors.email">{{ form.errors.email }}</div>
-    \<!-- password -->
+    <!-- password -->
     <input type="password" v-model="form.password">
     <div v-if="form.errors.password">{{ form.errors.password }}</div>
-    \<!-- remember me -->
+    <!-- remember me -->
     <input type="checkbox" v-model="form.remember"> Remember Me
-    \<!-- submit -->
+    <!-- submit -->
     <button type="submit" :disabled="form.processing">Login</button>
   </form>
 </template>
@@ -231,15 +231,15 @@ const form = useForm({
 
 <template>
   <form @submit.prevent="form.post('/login')">
-    \<!-- email -->
+    <!-- email -->
     <input type="text" v-model="form.email">
     <div v-if="form.errors.email">{{ form.errors.email }}</div>
-    \<!-- password -->
+    <!-- password -->
     <input type="password" v-model="form.password">
     <div v-if="form.errors.password">{{ form.errors.password }}</div>
-    \<!-- remember me -->
+    <!-- remember me -->
     <input type="checkbox" v-model="form.remember"> Remember Me
-    \<!-- submit -->
+    <!-- submit -->
     <button type="submit" :disabled="form.processing">Login</button>
   </form>
 </template>
@@ -428,11 +428,11 @@ You can use the `processing` property to track if a form is currently being subm
 
 <CodeGroup>
 
-```jsx Vue 2
+```vue Vue 2
 <button type="submit" :disabled="form.processing">Submit</button>
 ```
 
-```jsx Vue 3
+```vue Vue 3
 <button type="submit" :disabled="form.processing">Submit</button>
 ```
 
@@ -452,13 +452,13 @@ If your form is uploading files, the current progress event is available via the
 
 <CodeGroup>
 
-```jsx Vue 2
+```vue Vue 2
 <progress v-if="form.progress" :value="form.progress.percentage" max="100">
   {{ form.progress.percentage }}%
 </progress>
 ```
 
-```jsx Vue 3
+```vue Vue 3
 <progress v-if="form.progress" :value="form.progress.percentage" max="100">
   {{ form.progress.percentage }}%
 </progress>
@@ -488,11 +488,11 @@ If there are form validation errors, they are available via the `errors` propert
 
 <CodeGroup>
 
-```jsx Vue 2
+```vue Vue 2
 <div v-if="form.errors.email">{{ form.errors.email }}</div>
 ```
 
-```jsx Vue 3
+```vue Vue 3
 <div v-if="form.errors.email">{{ form.errors.email }}</div>
 ```
 

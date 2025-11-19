@@ -73,7 +73,7 @@ You can control how early content begins loading by setting a buffer distance. T
 
 ```html Vue icon="vuejs"
 <InfiniteScroll data="users" :buffer="500">
-  \<!-- ... -->
+  <!-- ... -->
 </InfiniteScroll>
 ```
 
@@ -85,7 +85,7 @@ You can control how early content begins loading by setting a buffer distance. T
 
 ```jsx Svelte icon="s"
 <InfiniteScroll data="users" buffer={500}>
-  \<!-- ... -->
+  <!-- ... -->
 </InfiniteScroll>
 ```
 
@@ -101,7 +101,7 @@ The infinite scroll component updates the browser URL's query string (`?page=...
 
 ```html Vue icon="vuejs"
 <InfiniteScroll data="users" preserve-url>
-  \<!-- ... -->
+  <!-- ... -->
 </InfiniteScroll>
 ```
 
@@ -113,7 +113,7 @@ The infinite scroll component updates the browser URL's query string (`?page=...
 
 ```jsx Svelte icon="s"
 <InfiniteScroll data="users" preserve-url>
-  \<!-- ... -->
+  <!-- ... -->
 </InfiniteScroll>
 ```
 
@@ -218,19 +218,19 @@ The infinite scroll component loads content in both directions when you scroll n
 <CodeGroup>
 
 ```html Vue icon="vuejs"
-\<!-- Only load the next page -->
+<!-- Only load the next page -->
 <InfiniteScroll data="users" only-next>
-  \<!-- ... -->
+  <!-- ... -->
 </InfiniteScroll>
 
-\<!-- Only load the previous page -->
+<!-- Only load the previous page -->
 <InfiniteScroll data="messages" only-previous>
-  \<!-- ... -->
+  <!-- ... -->
 </InfiniteScroll>
 
-\<!-- Load in both directions (default) -->
+<!-- Load in both directions (default) -->
 <InfiniteScroll data="posts">
-  \<!-- ... -->
+  <!-- ... -->
 </InfiniteScroll>
 ```
 
@@ -252,19 +252,19 @@ The infinite scroll component loads content in both directions when you scroll n
 ```
 
 ```jsx Svelte icon="s"
-\<!-- Only load the next page -->
+<!-- Only load the next page -->
 <InfiniteScroll data="users" only-next>
-  \<!-- ... -->
+  <!-- ... -->
 </InfiniteScroll>
 
-\<!-- Only load the previous page -->
+<!-- Only load the previous page -->
 <InfiniteScroll data="messages" only-previous>
-  \<!-- ... -->
+  <!-- ... -->
 </InfiniteScroll>
 
-\<!-- Load in both directions (default) -->
+<!-- Load in both directions (default) -->
 <InfiniteScroll data="posts">
-  \<!-- ... -->
+  <!-- ... -->
 </InfiniteScroll>
 ```
 
@@ -280,7 +280,7 @@ For chat applications, timelines, or interfaces where content is sorted descendi
 
 ```html Vue icon="vuejs"
 <InfiniteScroll data="messages" reverse>
-  \<!-- ... -->
+  <!-- ... -->
 </InfiniteScroll>
 ```
 
@@ -292,7 +292,7 @@ For chat applications, timelines, or interfaces where content is sorted descendi
 
 ```jsx Svelte icon="s"
 <InfiniteScroll data="messages" reverse>
-  \<!-- ... -->
+  <!-- ... -->
 </InfiniteScroll>
 ```
 
@@ -306,7 +306,7 @@ Reverse mode also enables automatic scrolling to the bottom on initial load, whi
 
 ```html Vue icon="vuejs"
 <InfiniteScroll data="messages" reverse :auto-scroll="false">
-  \<!-- ... -->
+  <!-- ... -->
 </InfiniteScroll>
 ```
 
@@ -318,7 +318,7 @@ Reverse mode also enables automatic scrolling to the bottom on initial load, whi
 
 ```jsx Svelte icon="s"
 <InfiniteScroll data="messages" reverse auto-scroll={false}>
-  \<!-- ... -->
+  <!-- ... -->
 </InfiniteScroll>
 ```
 
@@ -338,7 +338,7 @@ Manual mode disables automatic loading when scrolling and allows you to control 
     </button>
   </template>
 
-  \<!-- Your content -->
+  <!-- Your content -->
 
   <template #next="{ loading, fetch, hasMore }">
     <button v-if="hasMore" @click="fetch" :disabled="loading">
@@ -414,7 +414,7 @@ You can also configure the component to automatically switch to manual mode afte
 
 ```html Vue icon="vuejs"
 <InfiniteScroll data="users" :manual-after="3">
-  \<!-- ... -->
+  <!-- ... -->
 </InfiniteScroll>
 ```
 
@@ -426,7 +426,7 @@ You can also configure the component to automatically switch to manual mode afte
 
 ```jsx Svelte icon="s"
 <InfiniteScroll data="users" manual-after={3}>
-  \<!-- ... -->
+  <!-- ... -->
 </InfiniteScroll>
 ```
 
@@ -444,7 +444,7 @@ The main content area where you render your data items. This slot receives loadi
 
 ```html Vue icon="vuejs"
 <InfiniteScroll data="users" #default="{ loading, loadingPrevious, loadingNext }">
-  \<!-- Your content with access to loading states -->
+  <!-- Your content with access to loading states -->
 </InfiniteScroll>
 ```
 
@@ -458,7 +458,7 @@ The main content area where you render your data items. This slot receives loadi
 
 ```jsx Svelte icon="s"
 <InfiniteScroll data="users" let:loading let:loadingPrevious let:loadingNext>
-  \<!-- Your content with access to loading states -->
+  <!-- Your content with access to loading states -->
 </InfiniteScroll>
 ```
 
@@ -472,7 +472,7 @@ The loading slot is used as a fallback when loading content and no custom `befor
 
 ```html Vue icon="vuejs"
 <InfiniteScroll data="users">
-  \<!-- Your content -->
+  <!-- Your content -->
   <template #loading>
     Loading more users...
   </template>
@@ -487,7 +487,7 @@ The loading slot is used as a fallback when loading content and no custom `befor
 
 ```jsx Svelte icon="s"
 <InfiniteScroll data="users">
-  \<!-- Your content -->
+  <!-- Your content -->
   <div slot="loading">
     Loading more users...
   </div>
@@ -507,7 +507,7 @@ The `previous` and `next` slots are rendered above and below the main content, t
 {{ loading ? 'Loading...' : 'Load previous' }}
 </button>
 </template>
-\<!-- Your content -->
+<!-- Your content -->
 <template #next="{ loading, fetch, hasMore, manualMode }">
 <button v-if="manualMode && hasMore" @click="fetch" :disabled="loading">
 {{ loading ? 'Loading...' : 'Load more' }}
@@ -888,7 +888,7 @@ const fetchNext = () => {
   <button @click="fetchNext">Load More</button>
 
   <InfiniteScroll ref="infiniteScrollRef" data="users" manual>
-    \<!-- Your content -->
+    <!-- Your content -->
   </InfiniteScroll>
 </template>
 ```

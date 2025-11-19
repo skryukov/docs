@@ -12,19 +12,21 @@ To merge a prop instead of overwriting it, you may use the `Inertia::merge()` me
 
 ```php
 Route::get('/items', function () {
-// Static array of tags...
-$allTags = [
-'Laravel', 'React', 'Vue', 'Tailwind', 'Inertia',
-'PHP', 'JavaScript', 'TypeScript', 'Docker', 'Vite',
-];
-// Get chunk of tags by page...
-$page = request()->input('page', 1);
-$perPage = 5;
-$offset = ($page - 1) * $perPage;
-$tags = array_slice($allTags, $offset, $perPage);
-return Inertia::render('Tags/Index', [
-'tags' => Inertia::merge($tags),
-]);
+    // Static array of tags...
+    $allTags = [
+        'Laravel', 'React', 'Vue', 'Tailwind', 'Inertia',
+        'PHP', 'JavaScript', 'TypeScript', 'Docker', 'Vite',
+    ];
+
+    // Get chunk of tags by page...
+    $page = request()->input('page', 1);
+    $perPage = 5;
+    $offset = ($page - 1) * $perPage;
+    $tags = array_slice($allTags, $offset, $perPage);
+
+    return Inertia::render('Tags/Index', [
+        'tags' => Inertia::merge($tags),
+    ]);
 });
 ```
 
@@ -33,6 +35,7 @@ The `Inertia::merge()` method will append new items to existing arrays at the ro
 ```php
 // Append at root level (default)...
 Inertia::merge($items);
+
 // Prepend at root level...
 Inertia::merge($items)->prepend();
 ```
@@ -42,6 +45,7 @@ For more precise control, you can target specific nested properties for merging 
 ```php
 // Only append to the 'data' array, replace everything else...
 Inertia::merge(User::paginate())->append('data');
+
 // Prepend to the 'messages' array...
 Inertia::merge($chatData)->prepend('messages');
 ```
@@ -50,10 +54,12 @@ You can combine multiple operations and target several properties at once.
 
 ```php
 Inertia::merge($forumData)
-->append('posts')
-->prepend('announcements');
+    ->append('posts')
+    ->prepend('announcements');
+
 // Target multiple properties...
-Inertia::merge($dashboardData)->append(['notifications', 'activities']);
+Inertia::merge($dashboardData)
+    ->append(['notifications', 'activities']);
 ```
 
 On the client side, Inertia handles all the merging automatically according to your server-side configuration.
@@ -65,10 +71,11 @@ When merging arrays, you may use the `matchOn` parameter to match existing items
 ```php
 // Match posts by ID, update existing ones...
 Inertia::merge($postData)->append('data', matchOn: 'id');
+
 // Multiple properties with different match fields...
 Inertia::merge($complexData)->append([
-'users.data' => 'id',
-'messages' => 'uuid',
+    'users.data' => 'id',
+    'messages' => 'uuid',
 ]);
 ```
 
@@ -80,16 +87,17 @@ Instead of specifying which nested paths should be merged, you may use `Inertia:
 
 ```php
 Route::get('/chat', function () {
-$chatData = [
-'messages' => [
-['id' => 4, 'text' => 'Hello there!', 'user' => 'Alice'],
-['id' => 5, 'text' => 'How are you?', 'user' => 'Bob'],
-],
-'online' => 12,
-];
-return Inertia::render('Chat', [
-'chat' => Inertia::deepMerge($chatData)->matchOn('messages.id'),
-]);
+    $chatData = [
+        'messages' => [
+            ['id' => 4, 'text' => 'Hello there!', 'user' => 'Alice'],
+            ['id' => 5, 'text' => 'How are you?', 'user' => 'Bob'],
+        ],
+        'online' => 12,
+    ];
+
+    return Inertia::render('Chat', [
+        'chat' => Inertia::deepMerge($chatData)->matchOn('messages.id'),
+    ]);
 });
 ```
 

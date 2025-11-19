@@ -16,13 +16,13 @@ Sometimes it's desirable to prevent the default scroll resetting when making vis
 
 <CodeGroup>
 
-```js Vue 2 
+```js Vue 2
 import { router } from '@inertiajs/vue2'
 
 router.visit(url, { preserveScroll: false })
 ```
 
-```js Vue 3 
+```js Vue 3
 import { router } from '@inertiajs/vue3'
 
 router.visit(url, { preserveScroll: false })
@@ -46,13 +46,13 @@ If you'd like to only preserve the scroll position if the response includes vali
 
 <CodeGroup>
 
-```js Vue 2 
+```js Vue 2
 import { router } from '@inertiajs/vue2'
 
 router.visit(url, { preserveScroll: 'errors' })
 ```
 
-```js Vue 3 
+```js Vue 3
 import { router } from '@inertiajs/vue3'
 
 router.visit(url, { preserveScroll: 'errors' })
@@ -76,7 +76,7 @@ You can also lazily evaluate the `preserveScroll` option based on the response b
 
 <CodeGroup>
 
-```js Vue 2 
+```js Vue 2
 import { router } from '@inertiajs/vue2'
 
 router.post('/users', data, {
@@ -84,7 +84,7 @@ router.post('/users', data, {
 })
 ```
 
-```js Vue 3 
+```js Vue 3
 import { router } from '@inertiajs/vue3'
 
 router.post('/users', data, {
@@ -114,13 +114,13 @@ When using an [Inertia link](/v1/the-basics/links), you can preserve the scroll 
 
 <CodeGroup>
 
-```jsx Vue 2 
+```vue Vue 2
 import { Link } from '@inertiajs/vue2'
 
 <a href="/" preserve-scroll>Home</a>
 ```
 
-```jsx Vue 3 
+```vue Vue 3
 import { Link } from '@inertiajs/vue3'
 
 <a href="/" preserve-scroll>Home</a>
@@ -150,6 +150,6 @@ In these situations, you must tell Inertia which scrollable elements to manage b
 
 ```html
 <div class="overflow-y-auto" scroll-region>
-\<!-- Your page content -->
+<!-- Your page content -->
 </div>
 ```

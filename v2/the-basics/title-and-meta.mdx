@@ -14,7 +14,7 @@ To add `<head>` elements to your page, use the `<Head>` component. Within this c
 
 <CodeGroup>
 
-```jsx Vue icon="vuejs"
+```vue Vue icon="vuejs"
 import { Head } from '@inertiajs/vue3'
 
 <Head>
@@ -47,7 +47,7 @@ If you only need to add a `<title>` to the document `<head>`, you may simply pas
 
 <CodeGroup>
 
-```jsx Vue icon="vuejs"
+```vue Vue icon="vuejs"
 import { Head } from '@inertiajs/vue3'
 
 <Head title="Your page title" />
@@ -80,7 +80,7 @@ After defining the `title` callback, the callback will automatically be invoked 
 
 <CodeGroup>
 
-```jsx Vue icon="vuejs"
+```vue Vue icon="vuejs"
 import { Head } from '@inertiajs/vue3'
 
 <Head title="Home">
@@ -108,7 +108,7 @@ The `title` callback will also be invoked when you set the title using a `<title
 
 <CodeGroup>
 
-```jsx Vue icon="vuejs"
+```vue Vue icon="vuejs"
 import { Head } from '@inertiajs/vue3'
 
 <Head>
@@ -136,7 +136,7 @@ It's possible to have multiple instances of the `<Head>` component throughout yo
 
 <CodeGroup>
 
-```jsx Vue icon="vuejs"
+```vue Vue icon="vuejs"
 // Layout.vue
 
 import { Head } from '@inertiajs/vue3'
@@ -245,7 +245,7 @@ Once you have created the custom component, you can just start using it in your 
 
 <CodeGroup>
 
-```jsx Vue icon="vuejs"
+```vue Vue icon="vuejs"
 import AppHead from './AppHead'
 
 <AppHead title="About" />

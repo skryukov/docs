@@ -104,16 +104,16 @@ It's also possible to perform partial reloads with Inertia links using the `only
 
 <CodeGroup>
 
-```jsx Vue icon="vuejs"
+```vue Vue icon="vuejs"
 import { Link } from '@inertiajs/vue3'
 
-<a href="/users?active=true" :only="['users']">Show active</a>
+<Link href="/users?active=true" :only="['users']">Show active</Link>
 ```
 
 ```jsx React icon="react"
 import { Link } from '@inertiajs/react'
 
-<a href="/users?active=true" only={['users']}>Show active</a>
+<Link href="/users?active=true" only={['users']}>Show active</Link>
 ```
 
 ```jsx Svelte icon="s"
@@ -121,7 +121,7 @@ import { inertia, Link } from '@inertiajs/svelte'
 
 <a href="/users?active=true" use:inertia={{ only: ['users'] }}>Show active</a>
 
-<a href="/users?active=true" only={['users']}>Show active</a>
+<Link href="/users?active=true" only={['users']}>Show active</Link>
 ```
 
 </CodeGroup>
@@ -156,6 +156,14 @@ return Inertia::render('Users/Index', [
 ```
 
 Here's a summary of each approach:
+
+{/* | Approach         | Standard Visits | Partial Reloads | Evaluated |                                                                                                                                                                                          |
+|:--------------------|:---------------|:----------------|:----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `User::all()` | ALWAYS | OPTIONALLY | ALWAYS |
+| `fn () => User::all()` | ALWAYS | OPTIONALLY | ONLY when needed |                                                                                                                                                                               |
+| `Inertia::optional(fn () => User::all())` | NEVER | OPTIONALLY | ONLY when needed |                                                                                                                                                                               |
+| `Inertia::always(fn () => User::all())` | ALWAYS | ALWAYS | ALWAYS |                                                                                                                                                                               | */}
+
 
 ```php
 return Inertia::render('Users/Index', [

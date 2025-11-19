@@ -12,13 +12,13 @@ To create an Inertia link, use the Inertia `<a>` component. Any attributes you p
 
 <CodeGroup>
 
-```jsx Vue 2 
+```vue Vue 2
 import { Link } from '@inertiajs/vue2'
 
 <a href="/">Home</a>
 ```
 
-```jsx Vue 3 
+```vue Vue 3
 import { Link } from '@inertiajs/vue3'
 
 <a href="/">Home</a>
@@ -44,7 +44,7 @@ By default, Inertia renders links as anchor `<a>` elements. However, you can cha
 
 <CodeGroup>
 
-```jsx Vue 2 
+```vue Vue 2
 import { Link } from '@inertiajs/vue2'
 
 <a href="/logout" method="post" as="button" type="button">Logout</a>
@@ -53,7 +53,7 @@ import { Link } from '@inertiajs/vue2'
 <button type="button">Logout</button>
 ```
 
-```jsx Vue 3 
+```vue Vue 3
 import { Link } from '@inertiajs/vue3'
 
 <a href="/logout" method="post" as="button" type="button">Logout</a>
@@ -90,13 +90,13 @@ You can specify the HTTP request method for an Inertia link request using the `m
 
 <CodeGroup>
 
-```jsx Vue 2 
+```vue Vue 2
 import { Link } from '@inertiajs/vue2'
 
 <a href="/logout" method="post" as="button">Logout</a>
 ```
 
-```jsx Vue 3 
+```vue Vue 3
 import { Link } from '@inertiajs/vue3'
 
 <a href="/logout" method="post" as="button">Logout</a>
@@ -122,13 +122,13 @@ When making `POST` or `PUT` requests, you may wish to add additional data to the
 
 <CodeGroup>
 
-```jsx Vue 2 
+```vue Vue 2
 import { Link } from '@inertiajs/vue2'
 
 <a href="/endpoint" method="post" :data="{ foo: bar }">Save</a>
 ```
 
-```jsx Vue 3 
+```vue Vue 3
 import { Link } from '@inertiajs/vue3'
 
 <a href="/endpoint" method="post" :data="{ foo: bar }">Save</a>
@@ -154,13 +154,13 @@ The `headers` prop allows you to add custom headers to an Inertia link. However,
 
 <CodeGroup>
 
-```jsx Vue 2 
+```vue Vue 2
 import { Link } from '@inertiajs/vue2'
 
 <a href="/endpoint" :headers="{ foo: bar }">Save</a>
 ```
 
-```jsx Vue 3 
+```vue Vue 3
 import { Link } from '@inertiajs/vue3'
 
 <a href="/endpoint" :headers="{ foo: bar }">Save</a>
@@ -188,13 +188,13 @@ The `replace` prop allows you to specify the browser's history behavior. By defa
 
 <CodeGroup>
 
-```jsx Vue 2 
+```vue Vue 2
 import { Link } from '@inertiajs/vue2'
 
 <a href="/" replace>Home</a>
 ```
 
-```jsx Vue 3 
+```vue Vue 3
 import { Link } from '@inertiajs/vue3'
 
 <a href="/" replace>Home</a>
@@ -222,7 +222,7 @@ You can preserve a page component's local state using the `preserve-state` prop.
 
 <CodeGroup>
 
-```jsx Vue 2 
+```vue Vue 2
 import { Link } from '@inertiajs/vue2'
 
 <input v-model="query" type="text" />
@@ -230,7 +230,7 @@ import { Link } from '@inertiajs/vue2'
 <a href="/search" :data="{ query }" preserve-state>Search</a>
 ```
 
-```jsx Vue 3 
+```vue Vue 3
 import { Link } from '@inertiajs/vue3'
 
 <input v-model="query" type="text" />
@@ -264,13 +264,13 @@ You can use the `preserveScroll` prop to prevent Inertia from automatically rese
 
 <CodeGroup>
 
-```jsx Vue 2 
+```vue Vue 2
 import { Link } from '@inertiajs/vue2'
 
 <a href="/" preserve-scroll>Home</a>
 ```
 
-```jsx Vue 3 
+```vue Vue 3
 import { Link } from '@inertiajs/vue3'
 
 <a href="/" preserve-scroll>Home</a>
@@ -300,13 +300,13 @@ The `only` prop allows you to specify that only a subset of a page's props (data
 
 <CodeGroup>
 
-```jsx Vue 2 
+```vue Vue 2
 import { Link } from '@inertiajs/vue2'
 
 <a href="/users?active=true" :only="['users']">Show active</a>
 ```
 
-```jsx Vue 3 
+```vue Vue 3
 import { Link } from '@inertiajs/vue3'
 
 <a href="/users?active=true" :only="['users']">Show active</a>
@@ -336,7 +336,7 @@ It's often desirable to set an active state for navigation links based on the cu
 
 <CodeGroup>
 
-```jsx Vue 2 
+```vue Vue 2
 import { Link } from '@inertiajs/vue2'
 
 // URL exact match...
@@ -352,7 +352,7 @@ import { Link } from '@inertiajs/vue2'
 <a href="/users" :class="{ 'active': $page.component.startsWith('Users') }">Users</a>
 ```
 
-```jsx Vue 3 
+```vue Vue 3
 import { Link } from '@inertiajs/vue3'
 
 // URL exact match...
