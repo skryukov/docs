@@ -131,19 +131,19 @@ It's also possible to perform partial reloads with Inertia links using the `only
 ```vue Vue 2
 import { Link } from '@inertiajs/vue2'
 
-<a href="/users?active=true" :only="['users']">Show active</a>
+<Link href="/users?active=true" :only="['users']">Show active</Link>
 ```
 
 ```vue Vue 3
 import { Link } from '@inertiajs/vue3'
 
-<a href="/users?active=true" :only="['users']">Show active</a>
+<Link href="/users?active=true" :only="['users']">Show active</Link>
 ```
 
 ```jsx React icon="react"
 import { Link } from '@inertiajs/react'
 
-<a href="/users?active=true" only={['users']}>Show active</a>
+<Link href="/users?active=true" only={['users']}>Show active</Link>
 ```
 
 ```svelte Svelte icon="s"
@@ -151,7 +151,7 @@ import { inertia, Link } from '@inertiajs/svelte'
 
 <a href="/users?active=true" use:inertia="{{ only: ['users'] }}">Show active</a>
 
-<a href="/users?active=true" only={['users']}>Show active</a>
+<Link href="/users?active=true" only={['users']}>Show active</Link>
 ```
 
 </CodeGroup>

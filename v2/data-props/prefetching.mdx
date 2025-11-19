@@ -91,13 +91,13 @@ If you're confident that the user will visit a page next, you can prefetch the d
 ```vue Vue icon="vuejs"
 import { Link } from '@inertiajs/vue3'
 
-<a href="/users" prefetch="mount">Users</a>
+<Link href="/users" prefetch="mount">Users</Link>
 ```
 
 ```jsx React icon="react"
 import { Link } from '@inertiajs/react'
 
-<a href="/users" prefetch="mount">Users</a>
+<Link href="/users" prefetch="mount">Users</Link>
 ```
 
 ```svelte Svelte icon="s"
@@ -115,13 +115,13 @@ You can also combine prefetch strategies by passing an array of values to the `p
 ```vue Vue icon="vuejs"
 import { Link } from '@inertiajs/vue3'
 
-<a href="/users" :prefetch="['mount', 'hover']">Users</a>
+<Link href="/users" :prefetch="['mount', 'hover']">Users</Link>
 ```
 
 ```jsx React icon="react"
 import { Link } from '@inertiajs/react'
 
-<a href="/users" prefetch={['mount', 'hover']}>Users</a>
+<Link href="/users" prefetch={['mount', 'hover']}>Users</Link>
 ```
 
 ```svelte Svelte icon="s"

@@ -117,13 +117,13 @@ When using an [Inertia link](/v1/the-basics/links), you can preserve the scroll 
 ```vue Vue 2
 import { Link } from '@inertiajs/vue2'
 
-<a href="/" preserve-scroll>Home</a>
+<Link href="/" preserve-scroll>Home</Link>
 ```
 
 ```vue Vue 3
 import { Link } from '@inertiajs/vue3'
 
-<a href="/" preserve-scroll>Home</a>
+<Link href="/" preserve-scroll>Home</Link>
 ```
 
 ```jsx React icon="react"
@@ -137,7 +137,7 @@ import { inertia, Link } from '@inertiajs/svelte'
 
 <a href="/" use:inertia="{{ preserveScroll: true }}">Home</a>
 
-<a href="/" preserveScroll>Home</a>
+<Link href="/" preserveScroll>Home</Link>
 ```
 
 </CodeGroup>

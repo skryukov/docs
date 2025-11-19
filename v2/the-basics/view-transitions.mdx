@@ -87,19 +87,19 @@ The `viewTransition` option is also available on the `Link` component.
 ```vue Vue icon="vuejs"
 import { Link } from '@inertiajs/vue3'
 
-<a href="/another-page" view-transition>Navigate</a>
+<Link href="/another-page" view-transition>Navigate</Link>
 ```
 
 ```jsx React icon="react"
 import { Link } from '@inertiajs/react'
 
-<a href="/another-page" viewTransition>Navigate</a>
+<Link href="/another-page" viewTransition>Navigate</Link>
 ```
 
 ```svelte Svelte icon="s"
 import { Link } from '@inertiajs/svelte'
 
-<a href="/another-page" viewTransition>Navigate</a>
+<Link href="/another-page" viewTransition>Navigate</Link>
 ```
 
 </CodeGroup>
@@ -111,34 +111,34 @@ You may also pass a callback to access the `ViewTransition` instance.
 ```vue Vue icon="vuejs"
 import { Link } from '@inertiajs/vue3'
 
-<a
+<Link
     href="/another-page"
     :view-transition="(transition) => transition.finished.then(() => console.log('Done'))"
 >
     Navigate
-</a>
+</Link>
 ```
 
 ```jsx React icon="react"
 import { Link } from '@inertiajs/react'
 
-<a
+<Link
     href="/another-page"
     viewTransition={(transition) => transition.finished.then(() => console.log('Done'))}
 >
     Navigate
-</a>
+</Link>
 ```
 
 ```svelte Svelte icon="s"
 import { Link } from '@inertiajs/svelte'
 
-<a
+<Link
     href="/another-page"
     viewTransition={(transition) => transition.finished.then(() => console.log('Done'))}
 >
     Navigate
-</a>
+</Link>
 ```
 
 </CodeGroup>
