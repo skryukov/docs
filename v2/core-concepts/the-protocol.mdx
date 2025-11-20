@@ -1,5 +1,5 @@
 ---
-title: The protocol
+title: The Protocol
 ---
 
 This page contains a detailed specification of the Inertia protocol. Be sure to read the [how it works](/v2/core-concepts/how-it-works) page first for a high-level overview.
@@ -23,7 +23,7 @@ This HTML response includes the site assets (CSS, JavaScript) as well as a root 
 </html>
 ```
 
-While the initial response is HTML, Inertia does not server-side render the JavaScript page components.
+While the initial response is HTML, Inertia does not server-side render the JavaScript page components. For information on server-side rendering, see the [SSR documentation](/v2/advanced/server-side-rendering).
 
 ## Inertia responses
 
@@ -134,42 +134,42 @@ Inertia shares data between the server and client via a page object. This object
 </ParamField>
 
 <ParamField body="version" type="string|number">
-  The current asset version.
+  The current [asset version](/v2/advanced/asset-versioning).
 </ParamField>
 
 <ParamField body="encryptHistory" type="boolean">
-  Whether or not to encrypt the current page's history state.
+  Whether or not to [encrypt the current page's history state](/v2/security/history-encryption).
 </ParamField>
 
 <ParamField body="clearHistory" type="boolean">
-  Whether or not to clear any encrypted history state.
+  Whether or not to clear any [encrypted history state](/v2/security/history-encryption#clearing-history).
 </ParamField>
 
 <ParamField body="mergeProps" type="array">
-  Array of prop keys that should be merged (appended) during navigation. See the [merging props](/v2/data-props/merging-props) documentation for details.
+  Array of prop keys that should be [merged](/v2/data-props/merging-props) (appended) during navigation.
 </ParamField>
 
 <ParamField body="prependProps" type="array">
-  Array of prop keys that should be prepended during navigation.
+  Array of prop keys that should be [prepended](/v2/data-props/merging-props) during navigation.
 </ParamField>
 
 <ParamField body="deepMergeProps" type="array">
-  Array of prop keys that should be deep merged during navigation.
+  Array of prop keys that should be [deep merged](/v2/data-props/merging-props#deep-merge) during navigation.
 </ParamField>
 
 <ParamField body="matchPropsOn" type="array">
-  Array of prop keys to use for matching when merging props.
+  Array of prop keys to use for [matching when merging props](/v2/data-props/merging-props#matching-items).
 </ParamField>
 
 <ParamField body="scrollProps" type="object">
-  Configuration for infinite scroll prop merging behavior.
+  Configuration for [infinite scroll](/v2/data-props/infinite-scroll) prop merging behavior.
 </ParamField>
 
 <ParamField body="deferredProps" type="object">
-  Configuration for client-side lazy loading of props. See the [deferred props](/v2/data-props/deferred-props) documentation for details.
+  Configuration for client-side [lazy loading of props](/v2/data-props/deferred-props).
 </ParamField>
 
-On standard full page visits, the page object is JSON encoded into the `data-page` attribute in the root `<div>`. On Inertia visits, the page object is returned as the JSON payload.
+On standard full page visits, the page object is JSON encoded into the `data-page` attribute in the root `<div>`. On Inertia visits (as indicated by the presence of the `X-Inertia` header), the page object is returned as the JSON payload.
 
 ### Basic page object
 

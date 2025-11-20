@@ -1,5 +1,5 @@
 ---
-title: Title & meta
+title: Title & Meta
 ---
 
 Since Inertia powered JavaScript apps are rendered within the document `<body>`, they are unable to render markup to the document `<head>`, as it's outside of their scope. To help with this, Inertia ships with a `<Head>` component which can be used to set the page `<title>`, `<meta>` tags, and other `<head>` elements.
@@ -32,7 +32,7 @@ import { Head } from '@inertiajs/react'
 </Head>
 ```
 
-```html Svelte icon="s"
+```svelte Svelte icon="s"
 <svelte:head>
     <title>Your page title</title>
     <meta name="description" content="Your page description" />

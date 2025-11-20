@@ -1,5 +1,5 @@
 ---
-title: Shared data
+title: Shared Data
 ---
 
 Sometimes you need to access specific pieces of data on numerous pages within your application. For example, you may need to display the current user in the site header. Passing this data manually in each response across your entire application is cumbersome. Thankfully, there is a better option: shared data.
@@ -94,7 +94,7 @@ export default function Layout({ children }) {
 }
 ```
 
-```html Svelte icon="s"
+```svelte Svelte icon="s"
 <script>
     import { page } from '@inertiajs/svelte'
 </script>
@@ -171,7 +171,7 @@ export default function Layout({ children }) {
 }
 ```
 
-```html Svelte icon="s"
+```svelte Svelte icon="s"
 <script>
     import { page } from '@inertiajs/svelte'
 </script>

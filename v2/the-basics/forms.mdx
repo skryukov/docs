@@ -40,7 +40,7 @@ export default () => (
 )
 ```
 
-```html Svelte icon="s"
+```svelte Svelte icon="s"
 <script>
     import { Form } from '@inertiajs/svelte'
 </script>
@@ -80,7 +80,7 @@ The component also supports nested data structures, file uploads, and dotted key
 </Form>
 ```
 
-```html Svelte icon="s"
+```svelte Svelte icon="s"
 <Form action="/reports" method="post">
     <input type="text" name="name" />
     <textarea name="report[description]"></textarea>
@@ -118,7 +118,7 @@ You can pass a `transform` prop to modify the form data before submission. This 
 </Form>
 ```
 
-```html Svelte icon="s"
+```svelte Svelte icon="s"
 <Form
     action="/posts"
     method="post"
@@ -165,7 +165,7 @@ export default () => (
 )
 ```
 
-```html Svelte icon="s"
+```svelte Svelte icon="s"
 <script>
     import { Form } from '@inertiajs/svelte'
     import { store } from 'App/Http/Controllers/UserController'
@@ -218,7 +218,7 @@ You can set default values for form inputs using standard HTML attributes. Use <
 </Form>
 ```
 
-```html Svelte icon="s"
+```svelte Svelte icon="s"
 <Form action="/users" method="post">
     <input type="text" name="name" value="John Doe" />
 
@@ -312,7 +312,7 @@ The `<Form>` component exposes reactive state and helper methods through its def
 </Form>
 ```
 
-```html Svelte 4 icon="s"
+```svelte Svelte 4 icon="s"
 <Form
     action="/users"
     method="post"
@@ -346,7 +346,7 @@ The `<Form>` component exposes reactive state and helper methods through its def
 </Form>
 ```
 
-```html Svelte 5 icon="s"
+```svelte Svelte 5 icon="s"
 <Form action="/users" method="post">
     {#snippet children({
         errors,
@@ -406,7 +406,7 @@ The `errors` object uses dotted notation for nested fields, allowing you to disp
 </Form>
 ```
 
-```html Svelte 4 icon="s"
+```svelte Svelte 4 icon="s"
 <Form action="/users" method="post" let:errors>
     <input type="text" name="user.name" />
     {#if errors['user.name']}
@@ -415,7 +415,7 @@ The `errors` object uses dotted notation for nested fields, allowing you to disp
 </Form>
 ```
 
-```html Svelte 5 icon="s"
+```svelte Svelte 5 icon="s"
 <Form action="/users" method="post">
     {#snippet children({ errors })}
         <input type="text" name="user.name" />
@@ -486,7 +486,7 @@ In addition to `action` and `method`, the `<Form>` component accepts several pro
 </Form>
 ```
 
-```html Svelte icon="s"
+```svelte Svelte icon="s"
 <Form
     action="/profile"
     method="put"
@@ -584,7 +584,7 @@ The `<Form>` component emits all the standard visit [events](/v2/advanced/events
 </Form>
 ```
 
-```html Svelte 4 icon="s"
+```svelte Svelte 4 icon="s"
 <Form
     action="/users"
     method="post"
@@ -602,7 +602,7 @@ The `<Form>` component emits all the standard visit [events](/v2/advanced/events
 </Form>
 ```
 
-```html Svelte 5 icon="s"
+```svelte Svelte 5 icon="s"
 <Form
     action="/users"
     method="post"
@@ -662,7 +662,7 @@ The `Form` component provides several attributes that allow you to reset the for
 </Form>
 ```
 
-```html Svelte icon="s"
+```svelte Svelte icon="s"
 <!-- Reset the entire form on success -->
 <Form action="/users" method="post" resetOnSuccess>
     <input type="text" name="name" />
@@ -716,7 +716,7 @@ The `Form` component provides several attributes that allow you to reset the for
 </Form>
 ```
 
-```html Svelte icon="s"
+```svelte Svelte icon="s"
 <!-- Reset the entire form on success -->
 <Form action="/users" method="post" resetOnError>
     <input type="text" name="name" />
@@ -756,7 +756,7 @@ The `Form` component provides the `setDefaultsOnSuccess` attribute to set the cu
 </Form>
 ```
 
-```html Svelte icon="s"
+```svelte Svelte icon="s"
 <Form action="/users" method="post" setDefaultsOnSuccess>
     <input type="text" name="name" />
     <input type="email" name="email" />
@@ -790,7 +790,7 @@ The `<Form>` component supports dotted key notation for creating nested objects 
 </Form>
 ```
 
-```html Svelte icon="s"
+```svelte Svelte icon="s"
 <Form action="/users" method="post">
     <input type="text" name="user.name" />
     <input type="text" name="user.skills[]" />
@@ -835,7 +835,7 @@ If you need literal dots in your field names (not as nested object separators), 
 </Form>
 ```
 
-```html Svelte icon="s"
+```svelte Svelte icon="s"
 <Form action="/config" method="post">
     <input type="text" name="app\.name" />
     <input type="text" name="settings.theme\.mode" />
@@ -908,7 +908,7 @@ export default function CreateUser() {
 }
 ```
 
-```html Svelte icon="s"
+```svelte Svelte icon="s"
 <script>
     import { Form } from '@inertiajs/svelte'
 
@@ -990,7 +990,7 @@ return (
 )
 ```
 
-```html Svelte 4 icon="s"
+```svelte Svelte 4 icon="s"
 <script>
     import { useForm } from '@inertiajs/svelte'
 
@@ -1437,7 +1437,7 @@ const { isDirty } = useForm({ ... })
 {isDirty && <div>There are unsaved form changes.</div>}
 ```
 
-```html Svelte icon="s"
+```svelte Svelte icon="s"
 {#if $form.isDirty}
     <div>There are unsaved form changes.</div>
 {/if}
@@ -1653,7 +1653,7 @@ export default function Edit() {
 }
 ```
 
-```html Svelte 4 icon="s"
+```svelte Svelte 4 icon="s"
 <script>
     import { router } from '@inertiajs/svelte'
 
@@ -1682,7 +1682,7 @@ export default function Edit() {
 </form>
 ```
 
-```html Svelte 5 icon="s"
+```svelte Svelte 5 icon="s"
 <script>
     import { router } from '@inertiajs/svelte'
 

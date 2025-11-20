@@ -48,7 +48,7 @@ export default function Welcome({ user }) {
 }
 ```
 
-```html Svelte 4 icon="s"
+```svelte Svelte 4 icon="s"
 <script>
     import Layout from './Layout.svelte'
 
@@ -65,7 +65,7 @@ export default function Welcome({ user }) {
 </Layout>
 ```
 
-```html Svelte 5 icon="s"
+```svelte Svelte 5 icon="s"
 <script>
     import Layout from './Layout.svelte'
 
@@ -144,7 +144,7 @@ export default function Layout({ children }) {
 }
 ```
 
-```html Svelte 4 icon="s"
+```svelte Svelte 4 icon="s"
 <script>
     import { inertia } from '@inertiajs/svelte'
 </script>
@@ -161,7 +161,7 @@ export default function Layout({ children }) {
 </main>
 ```
 
-```html Svelte 5 icon="s"
+```svelte Svelte 5 icon="s"
 <script>
     import { inertia } from '@inertiajs/svelte'
 
@@ -232,7 +232,7 @@ Home.layout = page => <Layout children={page} title="Welcome" />
 export default Home
 ```
 
-```html Svelte 4 icon="s"
+```svelte Svelte 4 icon="s"
 <script context="module">
     export { default as layout } from './Layout.svelte'
 </script>
@@ -245,7 +245,7 @@ export default Home
 <p>Hello {user.name}, welcome to your first Inertia app!</p>
 ```
 
-```html Svelte 5 icon="s"
+```svelte Svelte 5 icon="s"
 <script module>
     export { default as layout } from './Layout.svelte'
 </script>
@@ -312,7 +312,7 @@ Home.layout = page => (
 export default Home
 ```
 
-```html Svelte 4 icon="s"
+```svelte Svelte 4 icon="s"
 <script context="module">
     import SiteLayout from './SiteLayout.svelte'
     import NestedLayout from './NestedLayout.svelte'
@@ -334,7 +334,7 @@ export default Home
 <p>Hello {user.name}, welcome to your first Inertia app!</p>
 ```
 
-```html Svelte 5 icon="s"
+```svelte Svelte 5 icon="s"
 <script module>
     import SiteLayout from './SiteLayout.svelte'
     import NestedLayout from './NestedLayout.svelte'
@@ -362,7 +362,7 @@ export default Home
 
 If you're using Vue 3.3+, you can alternatively use [defineOptions](https://vuejs.org/api/sfc-script-setup.html#defineoptions) to define a layout within `<script setup>`. Older versions of Vue can use the [defineOptions plugin](https://vue-macros.sxzz.moe/macros/define-options.html):
 
-```html
+```vue
 <script setup>
 import Layout from './Layout'
 defineOptions({ layout: Layout })
