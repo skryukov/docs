@@ -12,7 +12,7 @@ If you would like the request to always use a `FormData` object regardless of wh
 
 <CodeGroup>
 
-```js Vue 2
+```js Vue 2 icon="vuejs"
 import { router } from '@inertiajs/vue2'
 
 router.post('/users', data, {
@@ -20,7 +20,7 @@ router.post('/users', data, {
 })
 ```
 
-```js Vue 3
+```js Vue 3 icon="vuejs"
 import { router } from '@inertiajs/vue3'
 
 router.post('/users', data, {
@@ -56,7 +56,7 @@ Let's examine a complete file upload example using Inertia. This example include
 
 <CodeGroup>
 
-```vue Vue 2
+```vue Vue 2 icon="vuejs"
 <template>
     <form @submit.prevent="submit">
         <input type="text" v-model="form.name" />
@@ -89,7 +89,7 @@ export default {
 </script>
 ```
 
-```vue Vue 3
+```vue Vue 3 icon="vuejs"
 <script setup>
 import { useForm } from '@inertiajs/vue3'
 
@@ -180,13 +180,13 @@ However, some frameworks, such as [Laravel](https://laravel.com/docs/8.x/routing
 
 <CodeGroup>
 
-```js Vue 2
+```js Vue 2 icon="vuejs"
 import { router } from '@inertiajs/vue2'
 
 router.post(`/users/${user.id}\
 ```
 
-```js Vue 3
+```js Vue 3 icon="vuejs"
 import { router } from '@inertiajs/vue3'
 
 router.post(`/users/${user.id}\

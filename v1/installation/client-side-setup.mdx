@@ -40,7 +40,7 @@ Next, update your main JavaScript file to boot your Inertia app. To accomplish t
 
 <CodeGroup>
 
-```js Vue 2
+```js Vue 2 icon="vuejs"
 import Vue from 'vue'
 import { createInertiaApp } from '@inertiajs/vue2'
 
@@ -59,7 +59,7 @@ createInertiaApp({
 })
 ```
 
-```js Vue 3
+```js Vue 3 icon="vuejs"
 import { createApp, h } from 'vue'
 import { createInertiaApp } from '@inertiajs/vue3'
 
@@ -115,7 +115,7 @@ The `resolve` callback tells Inertia how to load a page component. It receives a
 
 <CodeGroup>
 
-```js Vue 2
+```js Vue 2 icon="vuejs"
 // Vite
 resolve: name => {
     const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
@@ -126,7 +126,7 @@ resolve: name => {
 resolve: name => require(`./Pages/${name}`),
 ```
 
-```js Vue 3
+```js Vue 3 icon="vuejs"
 // Vite
 resolve: name => {
     const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })

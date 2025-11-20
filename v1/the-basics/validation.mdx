@@ -24,7 +24,7 @@ Since validation errors are made available client-side as page component props, 
 
 <CodeGroup>
 
-```vue Vue 2
+```vue Vue 2 icon="vuejs"
 <template>
     <form @submit.prevent="submit">
         <label for="first_name">First name:</label>
@@ -65,7 +65,7 @@ export default {
 </script>
 ```
 
-```vue Vue 3
+```vue Vue 3 icon="vuejs"
 <script setup>
 import { reactive } from 'vue'
 import { router } from '@inertiajs/vue3'
@@ -197,7 +197,7 @@ To solve this issue, you can use "error bags". Error bags scope the validation e
 
 <CodeGroup>
 
-```js Vue 2
+```js Vue 2 icon="vuejs"
 import { router } from '@inertiajs/vue2'
 
 router.post('/companies', data, {
@@ -209,7 +209,7 @@ router.post('/users', data, {
 })
 ```
 
-```js Vue 3
+```js Vue 3 icon="vuejs"
 import { router } from '@inertiajs/vue3'
 
 router.post('/companies', data, {

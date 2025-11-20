@@ -12,13 +12,13 @@ To create an Inertia link, use the Inertia `<a>` component. Any attributes you p
 
 <CodeGroup>
 
-```vue Vue 2
+```vue Vue 2 icon="vuejs"
 import { Link } from '@inertiajs/vue2'
 
 <Link href="/">Home</Link>
 ```
 
-```vue Vue 3
+```vue Vue 3 icon="vuejs"
 import { Link } from '@inertiajs/vue3'
 
 <Link href="/">Home</Link>
@@ -44,7 +44,7 @@ By default, Inertia renders links as anchor `<a>` elements. However, you can cha
 
 <CodeGroup>
 
-```vue Vue 2
+```vue Vue 2 icon="vuejs"
 import { Link } from '@inertiajs/vue2'
 
 <Link href="/logout" method="post" as="button" type="button">Logout</Link>
@@ -53,7 +53,7 @@ import { Link } from '@inertiajs/vue2'
 <button type="button">Logout</button>
 ```
 
-```vue Vue 3
+```vue Vue 3 icon="vuejs"
 import { Link } from '@inertiajs/vue3'
 
 <Link href="/logout" method="post" as="button" type="button">Logout</Link>
@@ -90,13 +90,13 @@ You can specify the HTTP request method for an Inertia link request using the `m
 
 <CodeGroup>
 
-```vue Vue 2
+```vue Vue 2 icon="vuejs"
 import { Link } from '@inertiajs/vue2'
 
 <Link href="/logout" method="post" as="button">Logout</Link>
 ```
 
-```vue Vue 3
+```vue Vue 3 icon="vuejs"
 import { Link } from '@inertiajs/vue3'
 
 <Link href="/logout" method="post" as="button">Logout</Link>
@@ -122,13 +122,13 @@ When making `POST` or `PUT` requests, you may wish to add additional data to the
 
 <CodeGroup>
 
-```vue Vue 2
+```vue Vue 2 icon="vuejs"
 import { Link } from '@inertiajs/vue2'
 
 <Link href="/endpoint" method="post" :data="{ foo: bar }">Save</Link>
 ```
 
-```vue Vue 3
+```vue Vue 3 icon="vuejs"
 import { Link } from '@inertiajs/vue3'
 
 <Link href="/endpoint" method="post" :data="{ foo: bar }">Save</Link>
@@ -154,13 +154,13 @@ The `headers` prop allows you to add custom headers to an Inertia link. However,
 
 <CodeGroup>
 
-```vue Vue 2
+```vue Vue 2 icon="vuejs"
 import { Link } from '@inertiajs/vue2'
 
 <Link href="/endpoint" :headers="{ foo: bar }">Save</Link>
 ```
 
-```vue Vue 3
+```vue Vue 3 icon="vuejs"
 import { Link } from '@inertiajs/vue3'
 
 <Link href="/endpoint" :headers="{ foo: bar }">Save</Link>
@@ -188,13 +188,13 @@ The `replace` prop allows you to specify the browser's history behavior. By defa
 
 <CodeGroup>
 
-```vue Vue 2
+```vue Vue 2 icon="vuejs"
 import { Link } from '@inertiajs/vue2'
 
 <Link href="/" replace>Home</Link>
 ```
 
-```vue Vue 3
+```vue Vue 3 icon="vuejs"
 import { Link } from '@inertiajs/vue3'
 
 <Link href="/" replace>Home</Link>
@@ -222,7 +222,7 @@ You can preserve a page component's local state using the `preserve-state` prop.
 
 <CodeGroup>
 
-```vue Vue 2
+```vue Vue 2 icon="vuejs"
 import { Link } from '@inertiajs/vue2'
 
 <input v-model="query" type="text" />
@@ -230,7 +230,7 @@ import { Link } from '@inertiajs/vue2'
 <Link href="/search" :data="{ query }" preserve-state>Search</Link>
 ```
 
-```vue Vue 3
+```vue Vue 3 icon="vuejs"
 import { Link } from '@inertiajs/vue3'
 
 <input v-model="query" type="text" />
@@ -264,13 +264,13 @@ You can use the `preserveScroll` prop to prevent Inertia from automatically rese
 
 <CodeGroup>
 
-```vue Vue 2
+```vue Vue 2 icon="vuejs"
 import { Link } from '@inertiajs/vue2'
 
 <Link href="/" preserve-scroll>Home</Link>
 ```
 
-```vue Vue 3
+```vue Vue 3 icon="vuejs"
 import { Link } from '@inertiajs/vue3'
 
 <Link href="/" preserve-scroll>Home</Link>
@@ -300,13 +300,13 @@ The `only` prop allows you to specify that only a subset of a page's props (data
 
 <CodeGroup>
 
-```vue Vue 2
+```vue Vue 2 icon="vuejs"
 import { Link } from '@inertiajs/vue2'
 
 <Link href="/users?active=true" :only="['users']">Show active</Link>
 ```
 
-```vue Vue 3
+```vue Vue 3 icon="vuejs"
 import { Link } from '@inertiajs/vue3'
 
 <Link href="/users?active=true" :only="['users']">Show active</Link>
@@ -336,7 +336,7 @@ It's often desirable to set an active state for navigation links based on the cu
 
 <CodeGroup>
 
-```vue Vue 2
+```vue Vue 2 icon="vuejs"
 import { Link } from '@inertiajs/vue2'
 
 // URL exact match...
@@ -352,7 +352,7 @@ import { Link } from '@inertiajs/vue2'
 <Link href="/users" :class="{ 'active': $page.component.startsWith('Users') }">Users</Link>
 ```
 
-```vue Vue 3
+```vue Vue 3 icon="vuejs"
 import { Link } from '@inertiajs/vue3'
 
 // URL exact match...

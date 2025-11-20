@@ -10,7 +10,7 @@ While it's possible to make classic HTML form submissions with Inertia, it's not
 
 <CodeGroup>
 
-```vue Vue 2
+```vue Vue 2 icon="vuejs"
 <template>
     <form @submit.prevent="submit">
         <label for="first_name">First name:</label>
@@ -45,7 +45,7 @@ export default {
 </script>
 ```
 
-```vue Vue 3
+```vue Vue 3 icon="vuejs"
 <script setup>
 import { reactive } from 'vue'
 import { router } from '@inertiajs/vue3'
@@ -185,7 +185,7 @@ Since working with forms is so common, Inertia includes a form helper designed t
 
 <CodeGroup>
 
-```vue Vue 2
+```vue Vue 2 icon="vuejs"
 <template>
     <form @submit.prevent="form.post('/login')">
         <!-- email -->
@@ -218,7 +218,7 @@ export default {
 </script>
 ```
 
-```vue Vue 3
+```vue Vue 3 icon="vuejs"
 <script setup>
 import { useForm } from '@inertiajs/vue3'
 
@@ -306,7 +306,7 @@ To submit the form, you may use the `get`, `post`, `put`, `patch`and `delete` me
 
 <CodeGroup>
 
-```js Vue 2
+```js Vue 2 icon="vuejs"
 form.submit(method, url, options)
 form.get(url, options)
 form.post(url, options)
@@ -315,7 +315,7 @@ form.patch(url, options)
 form.delete(url, options)
 ```
 
-```js Vue 3
+```js Vue 3 icon="vuejs"
 form.submit(method, url, options)
 form.get(url, options)
 form.post(url, options)
@@ -350,14 +350,14 @@ The submit methods support all of the typical [visit options](/v1/the-basics/man
 
 <CodeGroup>
 
-```js Vue 2
+```js Vue 2 icon="vuejs"
 form.post('/profile', {
     preserveScroll: true,
     onSuccess: () => form.reset('password'),
 })
 ```
 
-```js Vue 3
+```js Vue 3 icon="vuejs"
 form.post('/profile', {
     preserveScroll: true,
     onSuccess: () => form.reset('password'),
@@ -386,7 +386,7 @@ If you need to modify the form data before it's sent to the server, you can do s
 
 <CodeGroup>
 
-```js Vue 2
+```js Vue 2 icon="vuejs"
 form
     .transform((data) => ({
         ...data,
@@ -395,7 +395,7 @@ form
     .post('/login')
 ```
 
-```js Vue 3
+```js Vue 3 icon="vuejs"
 form
     .transform((data) => ({
         ...data,
@@ -428,11 +428,11 @@ You can use the `processing` property to track if a form is currently being subm
 
 <CodeGroup>
 
-```vue Vue 2
+```vue Vue 2 icon="vuejs"
 <button type="submit" :disabled="form.processing">Submit</button>
 ```
 
-```vue Vue 3
+```vue Vue 3 icon="vuejs"
 <button type="submit" :disabled="form.processing">Submit</button>
 ```
 
@@ -452,13 +452,13 @@ If your form is uploading files, the current progress event is available via the
 
 <CodeGroup>
 
-```vue Vue 2
+```vue Vue 2 icon="vuejs"
 <progress v-if="form.progress" :value="form.progress.percentage" max="100">
     {{ form.progress.percentage }}%
 </progress>
 ```
 
-```vue Vue 3
+```vue Vue 3 icon="vuejs"
 <progress v-if="form.progress" :value="form.progress.percentage" max="100">
     {{ form.progress.percentage }}%
 </progress>
@@ -488,11 +488,11 @@ If there are form validation errors, they are available via the `errors` propert
 
 <CodeGroup>
 
-```vue Vue 2
+```vue Vue 2 icon="vuejs"
 <div v-if="form.errors.email">{{ form.errors.email }}</div>
 ```
 
-```vue Vue 3
+```vue Vue 3 icon="vuejs"
 <div v-if="form.errors.email">{{ form.errors.email }}</div>
 ```
 
@@ -516,7 +516,7 @@ To determine if a form has any errors, you may use the `hasErrors` property. To 
 
 <CodeGroup>
 
-```js Vue 2
+```js Vue 2 icon="vuejs"
 // Clear all errors...
 form.clearErrors()
 
@@ -524,7 +524,7 @@ form.clearErrors()
 form.clearErrors('field', 'anotherfield')
 ```
 
-```js Vue 3
+```js Vue 3 icon="vuejs"
 // Clear all errors...
 form.clearErrors()
 
@@ -556,7 +556,7 @@ If you're using a client-side input validation libraries or do client-side valid
 
 <CodeGroup>
 
-```js Vue 2
+```js Vue 2 icon="vuejs"
 // Set a single error...
 form.setError('field', 'Your error message.');
 
@@ -567,7 +567,7 @@ form.setError({
 });
 ```
 
-```js Vue 3
+```js Vue 3 icon="vuejs"
 // Set a single error...
 form.setError('field', 'Your error message.');
 
@@ -612,7 +612,7 @@ To reset the form's values back to their default values, you can use the `reset(
 
 <CodeGroup>
 
-```js Vue 2
+```js Vue 2 icon="vuejs"
 // Reset the form...
 form.reset()
 
@@ -620,7 +620,7 @@ form.reset()
 form.reset('field', 'anotherfield')
 ```
 
-```js Vue 3
+```js Vue 3 icon="vuejs"
 // Reset the form...
 form.reset()
 
@@ -652,7 +652,7 @@ If your form's default values become outdated, you can use the `defaults()` meth
 
 <CodeGroup>
 
-```js Vue 2
+```js Vue 2 icon="vuejs"
 // Set the form's current values as the new defaults...
 form.defaults()
 
@@ -666,7 +666,7 @@ form.defaults({
 })
 ```
 
-```js Vue 3
+```js Vue 3 icon="vuejs"
 // Set the form's current values as the new defaults...
 form.defaults()
 
@@ -716,11 +716,11 @@ To determine if a form has any changes, you may use the `isDirty` property.
 
 <CodeGroup>
 
-```vue Vue 2
+```vue Vue 2 icon="vuejs"
 <div v-if="form.isDirty">There are unsaved form changes.</div>
 ```
 
-```vue Vue 3
+```vue Vue 3 icon="vuejs"
 <div v-if="form.isDirty">There are unsaved form changes.</div>
 ```
 
@@ -742,11 +742,11 @@ To cancel a form submission, use the `cancel()` method.
 
 <CodeGroup>
 
-```js Vue 2
+```js Vue 2 icon="vuejs"
 form.cancel()
 ```
 
-```js Vue 3
+```js Vue 3 icon="vuejs"
 form.cancel()
 ```
 
@@ -766,14 +766,14 @@ To instruct Inertia to store a form's data and errors in [history state](/v1/adv
 
 <CodeGroup>
 
-```js Vue 2
+```js Vue 2 icon="vuejs"
 import { useForm } from '@inertiajs/vue2'
 
 form: useForm('CreateUser', data)
 form: useForm(`EditUser:${this.user.id}\
 ```
 
-```js Vue 3
+```js Vue 3 icon="vuejs"
 import { useForm } from '@inertiajs/vue3'
 
 const form = useForm('CreateUser', data)

@@ -8,7 +8,7 @@ In addition to [creating links](/v1/the-basics/links), it's also possible to man
 
 <CodeGroup>
 
-```js Vue 2
+```js Vue 2 icon="vuejs"
 import { router } from '@inertiajs/vue2'
 
 router.visit(url, {
@@ -32,7 +32,7 @@ router.visit(url, {
 })
 ```
 
-```js Vue 3
+```js Vue 3 icon="vuejs"
 import { router } from '@inertiajs/vue3'
 
 router.visit(url, {
@@ -110,7 +110,7 @@ However, it's generally more convenient to use one of Inertia's shortcut request
 
 <CodeGroup>
 
-```js Vue 2
+```js Vue 2 icon="vuejs"
 import { router } from '@inertiajs/vue2'
 
 router.get(url, data, options)
@@ -121,7 +121,7 @@ router.delete(url, options)
 router.reload(options) // Uses the current URL
 ```
 
-```js Vue 3
+```js Vue 3 icon="vuejs"
 import { router } from '@inertiajs/vue3'
 
 router.get(url, data, options)
@@ -164,13 +164,13 @@ When making manual visits, you may use the `method` option to set the request's 
 
 <CodeGroup>
 
-```js Vue 2
+```js Vue 2 icon="vuejs"
 import { router } from '@inertiajs/vue2'
 
 router.visit(url, { method: 'post' })
 ```
 
-```js Vue 3
+```js Vue 3 icon="vuejs"
 import { router } from '@inertiajs/vue3'
 
 router.visit(url, { method: 'post' })
@@ -198,7 +198,7 @@ You may use the `data` option to add data to the request.
 
 <CodeGroup>
 
-```js Vue 2
+```js Vue 2 icon="vuejs"
 import { router } from '@inertiajs/vue2'
 
 router.visit('/users', {
@@ -210,7 +210,7 @@ router.visit('/users', {
 })
 ```
 
-```js Vue 3
+```js Vue 3 icon="vuejs"
 import { router } from '@inertiajs/vue3'
 
 router.visit('/users', {
@@ -252,7 +252,7 @@ For convenience, the `get()`, `post()`, `put()`, and `patch()`methods all accept
 
 <CodeGroup>
 
-```js Vue 2
+```js Vue 2 icon="vuejs"
 import { router } from '@inertiajs/vue2'
 
 router.post('/users', {
@@ -261,7 +261,7 @@ router.post('/users', {
 })
 ```
 
-```js Vue 3
+```js Vue 3 icon="vuejs"
 import { router } from '@inertiajs/vue3'
 
 router.post('/users', {
@@ -296,7 +296,7 @@ The `headers` option allows you to add custom headers to a request.
 
 <CodeGroup>
 
-```js Vue 2
+```js Vue 2 icon="vuejs"
 import { router } from '@inertiajs/vue2'
 
 router.post('/users', data, {
@@ -306,7 +306,7 @@ router.post('/users', data, {
 })
 ```
 
-```js Vue 3
+```js Vue 3 icon="vuejs"
 import { router } from '@inertiajs/vue3'
 
 router.post('/users', data, {
@@ -346,7 +346,7 @@ When making visits / requests that include files, Inertia will automatically con
 
 <CodeGroup>
 
-```js Vue 2
+```js Vue 2 icon="vuejs"
 import { router } from '@inertiajs/vue2'
 
 router.post('/companies', data, {
@@ -354,7 +354,7 @@ router.post('/companies', data, {
 })
 ```
 
-```js Vue 3
+```js Vue 3 icon="vuejs"
 import { router } from '@inertiajs/vue3'
 
 router.post('/companies', data, {
@@ -388,13 +388,13 @@ When making visits, Inertia automatically adds a new entry into the browser hist
 
 <CodeGroup>
 
-```js Vue 2
+```js Vue 2 icon="vuejs"
 import { router } from '@inertiajs/vue2'
 
 router.get('/users', { search: 'John' }, { replace: true })
 ```
 
-```js Vue 3
+```js Vue 3 icon="vuejs"
 import { router } from '@inertiajs/vue3'
 
 router.get('/users', { search: 'John' }, { replace: true })
@@ -428,13 +428,13 @@ You can instruct Inertia to preserve the component's state when using the `get` 
 
 <CodeGroup>
 
-```js Vue 2
+```js Vue 2 icon="vuejs"
 import { router } from '@inertiajs/vue2'
 
 router.get('/users', { search: 'John' }, { preserveState: true })
 ```
 
-```js Vue 3
+```js Vue 3 icon="vuejs"
 import { router } from '@inertiajs/vue3'
 
 router.get('/users', { search: 'John' }, { preserveState: true })
@@ -458,13 +458,13 @@ If you'd like to only preserve state if the response includes validation errors,
 
 <CodeGroup>
 
-```js Vue 2
+```js Vue 2 icon="vuejs"
 import { router } from '@inertiajs/vue2'
 
 router.get('/users', { search: 'John' }, { preserveState: 'errors' })
 ```
 
-```js Vue 3
+```js Vue 3 icon="vuejs"
 import { router } from '@inertiajs/vue3'
 
 router.get('/users', { search: 'John' }, { preserveState: 'errors' })
@@ -488,7 +488,7 @@ You can also lazily evaluate the `preserveState` option based on the response by
 
 <CodeGroup>
 
-```js Vue 2
+```js Vue 2 icon="vuejs"
 import { router } from '@inertiajs/vue2'
 
 router.post('/users', data, {
@@ -496,7 +496,7 @@ router.post('/users', data, {
 })
 ```
 
-```js Vue 3
+```js Vue 3 icon="vuejs"
 import { router } from '@inertiajs/vue3'
 
 router.post('/users', data, {
@@ -530,13 +530,13 @@ You can disable this behavior by setting the `preserveScroll` option to `false`.
 
 <CodeGroup>
 
-```js Vue 2
+```js Vue 2 icon="vuejs"
 import { router } from '@inertiajs/vue2'
 
 router.visit(url, { preserveScroll: false })
 ```
 
-```js Vue 3
+```js Vue 3 icon="vuejs"
 import { router } from '@inertiajs/vue3'
 
 router.visit(url, { preserveScroll: false })
@@ -560,13 +560,13 @@ If you'd like to only preserve the scroll position if the response includes vali
 
 <CodeGroup>
 
-```js Vue 2
+```js Vue 2 icon="vuejs"
 import { router } from '@inertiajs/vue2'
 
 router.visit(url, { preserveScroll: 'errors' })
 ```
 
-```js Vue 3
+```js Vue 3 icon="vuejs"
 import { router } from '@inertiajs/vue3'
 
 router.visit(url, { preserveScroll: 'errors' })
@@ -590,7 +590,7 @@ You can also lazily evaluate the `preserveScroll` option based on the response b
 
 <CodeGroup>
 
-```js Vue 2
+```js Vue 2 icon="vuejs"
 import { router } from '@inertiajs/vue2'
 
 router.post('/users', data, {
@@ -598,7 +598,7 @@ router.post('/users', data, {
 })
 ```
 
-```js Vue 3
+```js Vue 3 icon="vuejs"
 import { router } from '@inertiajs/vue3'
 
 router.post('/users', data, {
@@ -632,13 +632,13 @@ The `only` option allows you to request a subset of the props (data) from the se
 
 <CodeGroup>
 
-```js Vue 2
+```js Vue 2 icon="vuejs"
 import { router } from '@inertiajs/vue2'
 
 router.visit('/users', { search: 'John' }, { only: ['users'] })
 ```
 
-```js Vue 3
+```js Vue 3 icon="vuejs"
 import { router } from '@inertiajs/vue3'
 
 router.visit('/users', { search: 'John' }, { only: ['users'] })
@@ -666,7 +666,7 @@ You can cancel a visit using a cancel token, which Inertia automatically generat
 
 <CodeGroup>
 
-```js Vue 2
+```js Vue 2 icon="vuejs"
 import { router } from '@inertiajs/vue2'
 
 router.post('/users', data, {
@@ -677,7 +677,7 @@ router.post('/users', data, {
 this.cancelToken.cancel()
 ```
 
-```js Vue 3
+```js Vue 3 icon="vuejs"
 import { router } from '@inertiajs/vue3'
 
 router.post('/users', data, {
@@ -720,7 +720,7 @@ In addition to Inertia's [global events](/v1/advanced/events), Inertia also prov
 
 <CodeGroup>
 
-```js Vue 2
+```js Vue 2 icon="vuejs"
 import { router } from '@inertiajs/vue2'
 
 router.post('/users', data, {
@@ -734,7 +734,7 @@ router.post('/users', data, {
 })
 ```
 
-```js Vue 3
+```js Vue 3 icon="vuejs"
 import { router } from '@inertiajs/vue3'
 
 router.post('/users', data, {
@@ -782,13 +782,13 @@ Returning `false` from the `onBefore()` callback will cause the visit to be canc
 
 <CodeGroup>
 
-```js Vue 2
+```js Vue 2 icon="vuejs"
 import { router } from '@inertiajs/vue2'
 
 router.delete(`/users/${user.id}\
 ```
 
-```js Vue 3
+```js Vue 3 icon="vuejs"
 import { router } from '@inertiajs/vue3'
 
 router.delete(`/users/${user.id}\
@@ -812,7 +812,7 @@ It's also possible to return a promise from the `onSuccess()` and `onError()` ca
 
 <CodeGroup>
 
-```js Vue 2
+```js Vue 2 icon="vuejs"
 import { router } from '@inertiajs/vue2'
 
 router.post(url, {
@@ -829,7 +829,7 @@ router.post(url, {
 })
 ```
 
-```js Vue 3
+```js Vue 3 icon="vuejs"
 import { router } from '@inertiajs/vue3'
 
 router.post(url, {
