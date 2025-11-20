@@ -14,102 +14,102 @@ Once you have your [server-side framework configured](/v2/installation/server-si
 Laravel's starter kits provide out-of-the-box scaffolding for new Inertia applications.
 
 These starter kits are the absolute fastest way to start building a new Inertia project using Laravel and Vue or React. However, if you would like to manually install Inertia into your application, please consult the documentation below.
-</Card >
+</Card>
 
-## Install dependencies
+## Installation
 
-First, install the Inertia client-side adapter corresponding to your framework of choice.
+<Steps>
+    <Step title="Install dependencies">
+        First, install the Inertia client-side adapter corresponding to your framework of choice.
 
-<CodeGroup>
+        <CodeGroup>
+        ```bash Vue icon="vuejs"
+        npm install @inertiajs/vue3
+        ```
 
-```bash Vue icon="vuejs"
-npm install @inertiajs/vue3
-```
+        ```bash React icon="react"
+        npm install @inertiajs/react
+        ```
 
-```bash React icon="react"
-npm install @inertiajs/react
-```
+        ```bash Svelte icon="s"
+        npm install @inertiajs/svelte
+        ```
+        </CodeGroup>
+    </Step>
 
-```bash Svelte icon="s"
-npm install @inertiajs/svelte
-```
+    <Step title="Initialize the Inertia app">
+        Next, update your main JavaScript file to boot your Inertia app. To accomplish this, we'll initialize the client-side framework with the base Inertia component.
 
-</CodeGroup>
+        <CodeGroup>
+        ```js Vue icon="vuejs"
+        import { createApp, h } from 'vue'
+        import { createInertiaApp } from '@inertiajs/vue3'
 
-## Initialize the Inertia app
+        createInertiaApp({
+            resolve: name => {
+                const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
+                return pages[`./Pages/${name}.vue`]
+            },
+            setup({ el, App, props, plugin }) {
+                createApp({ render: () => h(App, props) })
+                    .use(plugin)
+                    .mount(el)
+            },
+        })
+        ```
 
-Next, update your main JavaScript file to boot your Inertia app. To accomplish this, we'll initialize the client-side framework with the base Inertia component.
+        ```jsx React icon="react"
+        import { createInertiaApp } from '@inertiajs/react'
+        import { createRoot } from 'react-dom/client'
 
-<CodeGroup>
+        createInertiaApp({
+            resolve: name => {
+                const pages = import.meta.glob('./Pages/**/*.jsx', { eager: true })
+                return pages[`./Pages/${name}.jsx`]
+            },
+            setup({ el, App, props }) {
+                createRoot(el).render(<App {...props} />)
+            },
+        })
+        ```
 
-```js Vue icon="vuejs"
-import { createApp, h } from 'vue'
-import { createInertiaApp } from '@inertiajs/vue3'
+        ```js Svelte 4 icon="s"
+        import { createInertiaApp } from '@inertiajs/svelte'
 
-createInertiaApp({
-    resolve: name => {
-        const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
-        return pages[`./Pages/${name}.vue`]
-    },
-    setup({ el, App, props, plugin }) {
-        createApp({ render: () => h(App, props) })
-            .use(plugin)
-            .mount(el)
-    },
-})
-```
+        createInertiaApp({
+            resolve: name => {
+                const pages = import.meta.glob('./Pages/**/*.svelte', { eager: true })
+                return pages[`./Pages/${name}.svelte`]
+            },
+            setup({ el, App, props }) {
+                new App({ target: el, props })
+            },
+        })
+        ```
 
-```jsx React icon="react"
-import { createInertiaApp } from '@inertiajs/react'
-import { createRoot } from 'react-dom/client'
+        ```js Svelte 5 icon="s"
+        import { createInertiaApp } from '@inertiajs/svelte'
+        import { mount } from 'svelte'
 
-createInertiaApp({
-    resolve: name => {
-        const pages = import.meta.glob('./Pages/**/*.jsx', { eager: true })
-        return pages[`./Pages/${name}.jsx`]
-    },
-    setup({ el, App, props }) {
-        createRoot(el).render(<App {...props} />)
-    },
-})
-```
+        createInertiaApp({
+            resolve: name => {
+                const pages = import.meta.glob('./Pages/**/*.svelte', { eager: true })
+                return pages[`./Pages/${name}.svelte`]
+            },
+            setup({ el, App, props }) {
+                mount(App, { target: el, props })
+            },
+        })
+        ```
+        </CodeGroup>
 
-```js Svelte 4 icon="s"
-import { createInertiaApp } from '@inertiajs/svelte'
-
-createInertiaApp({
-    resolve: name => {
-        const pages = import.meta.glob('./Pages/**/*.svelte', { eager: true })
-        return pages[`./Pages/${name}.svelte`]
-    },
-    setup({ el, App, props }) {
-        new App({ target: el, props })
-    },
-})
-```
-
-```js Svelte 5 icon="s"
-import { createInertiaApp } from '@inertiajs/svelte'
-import { mount } from 'svelte'
-
-createInertiaApp({
-    resolve: name => {
-        const pages = import.meta.glob('./Pages/**/*.svelte', { eager: true })
-        return pages[`./Pages/${name}.svelte`]
-    },
-    setup({ el, App, props }) {
-        mount(App, { target: el, props })
-    },
-})
-```
-
-</CodeGroup>
-
-The `setup` callback receives everything necessary to initialize the client-side framework, including the root Inertia `App` component.
+        The `setup` callback receives everything necessary to initialize the client-side framework, including the root Inertia `App` component.
+    </Step>
+</Steps>
 
 ## Configuring defaults
 
-You may pass a `defaults` object to `createInertiaApp()` to configure default settings for various features. You don't have to pass all keys, just the ones you want to tweak.
+You may pass a `defaults` object to `createInertiaApp()` to configure default settings for various features. You don't have to pass a default for every key, just the ones you want to tweak.
 
 ```js
 createInertiaApp({
@@ -136,7 +136,7 @@ createInertiaApp({
 
 The `visitOptions` callback receives the target URL and the current visit options, and should return an object with any options you want to override. For more details on the available configuration options, see the [forms](/forms#form-errors), [prefetching](/v2/data-props/prefetching), and [manual visits](/manual-visits#global-visit-options) documentation.
 
-### Updating at runtime
+### Updating configuration at runtime
 
 You may also update configuration values at runtime using the exported `config` instance. This is particularly useful when you need to adjust settings based on user preferences or application state.
 
