@@ -21,7 +21,7 @@ export const SvelteSpecific = ({ children }) => {
         };
     });
 
-    if (!code.includes("Svelte")) {
+    if (!code?.includes("Svelte")) {
         return null;
     }
 
