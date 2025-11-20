@@ -43,7 +43,7 @@ However, when using Laravel, the [Ziggy](https://github.com/tighten/ziggy) libra
 If you're using the Vue plugin included with Ziggy, you may use the `route()` function directly in your templates.
 
 ```html
-<a :href="route('users.create')">Create User</a>
+<Link :href="route('users.create')">Create User</Link>
 ```
 
 When [server-side rendering](/v2/advanced/server-side-rendering) is enabled, you may pass an options object to the Ziggy plugin in your `ssr.js` file. This should include the route definitions and current location.

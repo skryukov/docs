@@ -2,7 +2,7 @@
 title: Upgrade guide for v1.0
 ---
 
-<Warning>This is documentation for Inertia.js v1, which is no longer actively maintained. Please refer to the <a href="/v2/getting-started">v2 docs</a> for the latest information.</Warning>
+<Warning>This is documentation for Inertia.js v1, which is no longer actively maintained. Please refer to the [v2 docs](/v2) for the latest information.</Warning>
 
 You can find the legacy docs for Inertia.js v0.11 at [legacy.inertiajs.com](https://legacy.inertiajs.com).
 
@@ -24,11 +24,11 @@ To get started, remove *all* of the old Inertia libraries.
 
 <CodeGroup>
 
-```bash Vue 2 
+```bash Vue 2
 npm remove @inertiajs/inertia @inertiajs/inertia-vue @inertiajs/progress @inertiajs/server
 ```
 
-```bash Vue 3 
+```bash Vue 3
 npm remove @inertiajs/inertia @inertiajs/inertia-vue3 @inertiajs/progress @inertiajs/server
 ```
 
@@ -46,11 +46,11 @@ Next, install the new Inertia adapter of your choice. The new adapter libraries 
 
 <CodeGroup>
 
-```bash Vue 2 
+```bash Vue 2
 npm install @inertiajs/vue2
 ```
 
-```bash Vue 3 
+```bash Vue 3
 npm install @inertiajs/vue3
 ```
 
@@ -74,7 +74,7 @@ Here is a complete list of all the import changes:
 
 <CodeGroup>
 
-```diff Vue 2 
+```diff Vue 2
 \- import { Inertia } from '@inertiajs/inertia'
 \+ import { router } from '@inertiajs/vue2'
 
@@ -98,7 +98,7 @@ Here is a complete list of all the import changes:
 \+ import { Link } from '@inertiajs/vue2'
 ```
 
-```diff Vue 3 
+```diff Vue 3
 \- import { Inertia } from '@inertiajs/inertia'
 \+ import { router } from '@inertiajs/vue3'
 
@@ -205,11 +205,11 @@ If you haven't yet, remove the old progress library.
 
 <CodeGroup>
 
-```bash Vue 2 
+```bash Vue 2
 npm remove @inertiajs/progress
 ```
 
-```bash Vue 3 
+```bash Vue 3
 npm remove @inertiajs/progress
 ```
 
