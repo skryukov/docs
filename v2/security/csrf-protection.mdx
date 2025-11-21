@@ -62,7 +62,7 @@ The easiest way to implement this is using server-side middleware. Simply includ
 
 When a CSRF token mismatch occurs, your server-side framework will likely throw an exception that results in an error response. For example, when using Laravel, a `TokenMismatchException` is thrown which results in a `419` error page. Since that isn't a valid Inertia response, the error is shown in a modal.
 
-<video controls=""><source src="/mp4/csrf-mismatch-modal.mp4" type="video/mp4"></source></video>Obviously, this isn't a great user experience. A better way to handle these errors is to return a redirect back to the previous page, along with a flash message that the page expired. This will result in a valid Inertia response with the flash message available as a prop which you can then display to the user. Of course, you'll need to share your [flash messages](/shared-data#flash-messages) with Inertia for this to work.
+<video controls=""><source src="/mp4/csrf-mismatch-modal.mp4" type="video/mp4"></source></video>Obviously, this isn't a great user experience. A better way to handle these errors is to return a redirect back to the previous page, along with a flash message that the page expired. This will result in a valid Inertia response with the flash message available as a prop which you can then display to the user. Of course, you'll need to share your [flash messages](/v2/data-props/shared-data#flash-messages) with Inertia for this to work.
 
 When using Laravel, you may modify your application's exception handler to automatically redirect the user back to the page they were previously on while flashing a message to the session. To accomplish this, you may use the `respond` exception method in your application's `bootstrap/app.php` file.
 

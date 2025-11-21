@@ -471,7 +471,7 @@ The `error` event is not cancelable.
 
 ## Invalid
 
-The `invalid` event fires when a non-Inertia response is received from the server, such as an HTML or vanilla JSON response. A valid Inertia response is a response that has the `X-Inertia` header set to `true` with a `json` payload containing [the page object](/the-protocol#the-page-object).
+The `invalid` event fires when a non-Inertia response is received from the server, such as an HTML or vanilla JSON response. A valid Inertia response is a response that has the `X-Inertia` header set to `true` with a `json` payload containing [the page object](/v2/core-concepts/the-protocol#the-page-object).
 
 This event is fired for all response types, including `200`, `400`, and `500`response codes.
 
@@ -750,4 +750,4 @@ The `prefetched` event is not cancelable.
 
 ## Event Callbacks
 
-In addition to the global events described throughout this page, Inertia also provides a number of [event callbacks](/manual-visits#event-callbacks) that fire when manually making Inertia visits.
+In addition to the global events described throughout this page, Inertia also provides a number of [event callbacks](/v2/the-basics/manual-visits#event-callbacks) that fire when manually making Inertia visits.

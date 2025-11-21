@@ -365,7 +365,7 @@ The headers Inertia uses internally to communicate its state to the server take 
 
 ## Global Visit Options
 
-You may configure a `visitOptions` callback when [initializing your Inertia app](/client-side-setup#configuring-defaults) to modify visit options globally for every request. The callback receives the target URL and the current visit options, and should return an object with any options you want to override.
+You may configure a `visitOptions` callback when [initializing your Inertia app](/v2/installation/client-side-setup#configuring-defaults) to modify visit options globally for every request. The callback receives the target URL and the current visit options, and should return an object with any options you want to override.
 
 <CodeGroup>
 
@@ -761,7 +761,7 @@ router.post('/users', data, {
 
 ## Scroll Preservation
 
-When navigating between pages, Inertia mimics default browser behavior by automatically resetting the scroll position of the document body (as well as any [scroll regions](/scroll-management#scroll-regions) you've defined) back to the top of the page.
+When navigating between pages, Inertia mimics default browser behavior by automatically resetting the scroll position of the document body (as well as any [scroll regions](/v2/advanced/scroll-management#scroll-regions) you've defined) back to the top of the page.
 
 You can disable this behavior by setting the `preserveScroll` option to `true`.
 
