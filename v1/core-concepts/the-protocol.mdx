@@ -15,34 +15,27 @@ page's body. The root `<div>` serves as a mounting point for the client-side app
 `data-page` attribute with a JSON encoded <a href="#the-page-object">page object</a> for the initial
 page. Inertia uses this information to boot your client-side framework and display the initial page component.
 
-<div className="overflow-hidden rounded" style={{ background: '#202e59' }}>
-    <div className="px-6 pt-6 font-mono text-sm text-white">
-        <div className="text-xs font-bold uppercase text-gray-600">Request</div>
-        <div className="mt-1">
-        <span className="text-blue-400">GET:</span> http://example.com/events/80
-        </div>
-        <div>
-        <span className="text-blue-400">Accept:</span> text/html, application/xhtml+xml
-        </div>
-        <div className="mt-8 text-xs font-bold uppercase text-gray-600">Response</div>
-        <div className="mt-1">HTTP/1.1 200 OK</div>
-        <div>
-        <span className="text-blue-400">Content-Type:</span> text/html; charset=utf-8
-        </div>
-    </div>
-    ```html
-    <html>
-        <head>
-            <title>My app</title>
-            <link href="/css/app.css" rel="stylesheet">
-            <script src="/js/app.js" defer></script>
-        </head>
-        <body>
-            <div id="app" data-page='{"component":"Event","props":{"event":{"id":80,"title":"Birthday party","start_date":"2019-06-02","description":"Come out and celebrate Jonathan&apos;s 36th birthday party!"}},"url":"/events/80","version":"c32b8e4965f418ad16eaebba1d4e960f"}'></div>
-        </body>
-    </html>
-    ```
-</div>
+```http
+http
+REQUEST
+GET: https://example.com/events/80
+Accept: text/html, application/xhtml+xml
+
+RESPONSE
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=utf-8
+
+<html>
+    <head>
+        <title>My app</title>
+        <link href="/css/app.css" rel="stylesheet">
+        <script src="/js/app.js" defer></script>
+    </head>
+    <body>
+        <div id="app" data-page='{"component":"Event","props":{"event":{"id":80,"title":"Birthday party","start_date":"2019-06-02","description":"Come out and celebrate Jonathan&apos;s 36th birthday party!"}},"url":"/events/80","version":"c32b8e4965f418ad16eaebba1d4e960f"}'></div>
+    </body>
+</html>
+```
 
 <Info>
 While the initial response is HTML, Inertia does not server-side render the JavaScript page components.
@@ -58,53 +51,34 @@ When the server detects the `X-Inertia` header, instead of responding with a ful
 returns a JSON response with an encoded <a href="#the-page-object">page object</a>.
 
 
-<div className="overflow-hidden rounded" style={{ background: '#202e59' }}>
-<div className="px-6 pt-6 font-mono text-sm text-white">
-    <div className="text-xs font-bold uppercase text-gray-600">Request</div>
-    <div className="mt-1">
-    <span className="text-blue-400">GET:</span> http://example.com/events/80
-    </div>
-    <div>
-    <span className="text-blue-400">Accept:</span> text/html, application/xhtml+xml
-    </div>
-    <div>
-    <span className="text-blue-400">X-Requested-With:</span> XMLHttpRequest
-    </div>
-    <div>
-    <span className="text-blue-400">X-Inertia:</span> true
-    </div>
-    <div>
-    <span className="text-blue-400">X-Inertia-Version:</span> 6b16b94d7c51cbe5b1fa42aac98241d5
-    </div>
-    <div className="mt-8 text-xs font-bold uppercase text-gray-600">Response</div>
-    <div className="mt-1">HTTP/1.1 200 OK</div>
-    <div>
-    <span className="text-blue-400">Content-Type:</span> application/json
-    </div>
-    <div>
-    <span className="text-blue-400">Vary:</span> X-Inertia
-    </div>
-    <div>
-    <span className="text-blue-400">X-Inertia:</span> true
-    </div>
-</div>
-```json
-    {
-        "component": "Event",
-        "props": {
-        "event": {
-            "id": 80,
-            "title": "Birthday party",
-            "start_date": "2019-06-02",
-            "description": "Come out and celebrate Jonathan's 36th birthday party!"
-        }
-        },
-        "url": "/events/80",
-        "version": "c32b8e4965f418ad16eaebba1d4e960f"
-    }
-```
-</div>
+```http
+REQUEST
+GET: https://example.com/events/80
+Accept: text/html, application/xhtml+xml
+X-Requested-With: XMLHttpRequest
+X-Inertia: true
+X-Inertia-Version: 6b16b94d7c51cbe5b1fa42aac98241d5
 
+RESPONSE
+HTTP/1.1 200 OK
+Content-Type: application/json
+Vary: X-Inertia
+X-Inertia: true
+
+{
+    "component": "Event",
+    "props": {
+    "event": {
+        "id": 80,
+        "title": "Birthday party",
+        "start_date": "2019-06-02",
+        "description": "Come out and celebrate Jonathan's 36th birthday party!"
+    }
+    },
+    "url": "/events/80",
+    "version": "c32b8e4965f418ad16eaebba1d4e960f"
+}
+```
 
 ## The page object
 
@@ -153,31 +127,18 @@ redirect occurs after one of these requests.
 If "flash" session data exists when a `409 Conflict` response occurs, Inertia's server-side framework
 adapters will automatically reflash this data.
 
-<div className="overflow-hidden rounded" style={{ background: '#202e59' }}>
-        <div className="p-6 font-mono text-sm text-white">
-          <div className="text-xs font-bold uppercase text-gray-600">Request</div>
-          <div className="mt-1">
-            <span className="text-blue-400">GET:</span> http://example.com/events/80
-          </div>
-          <div>
-            <span className="text-blue-400">Accept:</span> text/html, application/xhtml+xml
-          </div>
-          <div>
-            <span className="text-blue-400">X-Requested-With:</span> XMLHttpRequest
-          </div>
-          <div>
-            <span className="text-blue-400">X-Inertia:</span> true
-          </div>
-          <div>
-            <span className="text-blue-400">X-Inertia-Version:</span> 6b16b94d7c51cbe5b1fa42aac98241d5
-          </div>
-          <div className="mt-8 text-xs font-bold uppercase text-gray-600">Response</div>
-          <div className="mt-1">409: Conflict</div>
-          <div>
-            <span className="text-blue-400">X-Inertia-Location:</span> http://example.com/events/80
-          </div>
-        </div>
-      </div>
+```http
+REQUEST
+GET: http://example.com/events/80
+Accept: text/html, application/xhtml+xml
+X-Requested-With: XMLHttpRequest
+X-Inertia: true
+X-Inertia-Version: 6b16b94d7c51cbe5b1fa42aac98241d5
+
+RESPONSE
+409: Conflict
+X-Inertia-Location: http://example.com/events/80
+```
 
 ## Partial reloads
 
@@ -197,46 +158,28 @@ the final destination is different for some reason (eg. the user was logged out 
 then no partial reloading will occur.
 
 
-<div className="overflow-hidden rounded" style={{ background: '#202e59' }}>
-        <div className="px-6 pt-6 font-mono text-sm text-white">
-          <div className="text-xs font-bold uppercase text-gray-600">Request</div>
-          <div className="mt-1">
-            <span className="text-blue-400">GET:</span> http://example.com/events
-          </div>
-          <div>
-            <span className="text-blue-400">Accept:</span> text/html, application/xhtml+xml
-          </div>
-          <div>
-            <span className="text-blue-400">X-Requested-With:</span> XMLHttpRequest
-          </div>
-          <div>
-            <span className="text-blue-400">X-Inertia:</span> true
-          </div>
-          <div>
-            <span className="text-blue-400">X-Inertia-Version:</span> 6b16b94d7c51cbe5b1fa42aac98241d5
-          </div>
-          <div>
-            <span className="text-blue-400">X-Inertia-Partial-Data:</span> events
-          </div>
-          <div>
-            <span className="text-blue-400">X-Inertia-Partial-Component:</span> Events
-          </div>
-          <div className="mt-8 text-xs font-bold uppercase text-gray-600">Response</div>
-          <div className="mt-1">HTTP/1.1 200 OK</div>
-          <div>
-            <span className="text-blue-400">Content-Type:</span> application/json
-          </div>
-        </div>
-        ```json
-            {
-              "component": "Events",
-              "props": {
-                "auth": {...},       // NOT included
-                "categories": [...], // NOT included
-                "events": [...]      // included
-              },
-              "url": "/events/80",
-              "version": "c32b8e4965f418ad16eaebba1d4e960f"
-            }
-         ```
-      </div>
+```http
+REQUEST
+GET: http://example.com/events
+Accept: text/html, application/xhtml+xml
+X-Requested-With: XMLHttpRequest
+X-Inertia: true
+X-Inertia-Version: 6b16b94d7c51cbe5b1fa42aac98241d5
+X-Inertia-Partial-Data: events
+X-Inertia-Partial-Component: Events
+
+RESPONSE
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "component": "Events",
+    "props": {
+    "auth": {...},       // NOT included
+    "categories": [...], // NOT included
+    "events": [...]      // included
+    },
+    "url": "/events/80",
+    "version": "c32b8e4965f418ad16eaebba1d4e960f"
+}
+```
