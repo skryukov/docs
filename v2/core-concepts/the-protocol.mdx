@@ -51,21 +51,23 @@ When the server detects the `X-Inertia` header, instead of responding with a ful
 
 ## Request Lifecycle Diagram
 
-The diagram below illustrates the request lifecycle within an Inertia application. The initial visit generates a standard request to the server, which returns an HTML application skeleton containing a root element with hydrated data. For subsequent user interactions and navigation, Inertia sends XHR requests that return JSON data. Inertia uses this response to dynamically swap the page component and inject new content without a full page reload.
+The diagram below illustrates the request lifecycle within an Inertia application. The initial visit generates a standard request to the server, which returns an HTML application skeleton containing a root element with hydrated data. For subsequent user interactions and navigation, Inertia sends XHR requests that return JSON data. Inertia uses this response to dynamically hydrate and swap the page component without a full page reload.
 
-<img
-  className="block dark:hidden mx-auto"
-  style={{width: "450px", height: "auto"}}
-  src="/images/protocol-diagram.png"
-  alt="Request Lifecycle Diagram"
-/>
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Server
 
-<img
-  className="hidden dark:block mx-auto"
-  style={{width: "450px", height: "auto"}}
-  src="/images/protocol-diagram-dark.png"
-  alt="Request Lifecycle Diagram"
-/>
+    Client->>Server: First Visit
+    Server-->>Client: Returns HTML Skeleton
+
+    Note over Client: Inertia.js is loaded
+
+    Client->>Server: Inertia Request (X-Inertia: true)
+    Server-->>Client: Returns JSON Payload (Component Name, Props, etc.)
+
+    Note over Client: Inertia.js swaps components
+```
 
 ## Request Headers
 
