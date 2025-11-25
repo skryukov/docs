@@ -12,7 +12,7 @@ This HTML response includes the site assets (CSS, JavaScript) as well as a root 
 
 ```http
 REQUEST
-GET: http://example.com/events/80
+GET: https://example.com/events/80
 Accept: text/html, application/xhtml+xml
 
 RESPONSE
@@ -41,7 +41,7 @@ When the server detects the `X-Inertia` header, instead of responding with a ful
 
 ```http
 REQUEST
-GET: http://example.com/events/80
+GET: https://example.com/events/80
 Accept: text/html, application/xhtml+xml
 X-Requested-With: XMLHttpRequest
 X-Inertia: true
@@ -360,7 +360,7 @@ If "flash" session data exists when a `409 Conflict` response occurs, Inertia's 
 
 ```http
 REQUEST
-GET: http://example.com/events/80
+GET: https://example.com/events/80
 Accept: text/html, application/xhtml+xml
 X-Requested-With: XMLHttpRequest
 X-Inertia: true
@@ -368,7 +368,7 @@ X-Inertia-Version: 6b16b94d7c51cbe5b1fa42aac98241d5
 
 RESPONSE
 409: Conflict
-X-Inertia-Location: http://example.com/events/80
+X-Inertia-Location: https://example.com/events/80
 ```
 
 You can read more about this on the [asset versioning](/v2/advanced/asset-versioning) page.
@@ -387,7 +387,7 @@ The `X-Inertia-Partial-Component` header includes the name of the component that
 
 ```http
 REQUEST
-GET: http://example.com/events
+GET: https://example.com/events
 Accept: text/html, application/xhtml+xml
 X-Requested-With: XMLHttpRequest
 X-Inertia: true
@@ -404,8 +404,8 @@ Content-Type: application/json
     "props": {
         "auth": {...},       // NOT included
         "categories": [...], // NOT included
-        "events": [...],     // included
-        "errors": {}         // always included
+        "events": [...],     // Included
+        "errors": {}         // ALWAYS included
     },
     "url": "/events/80",
     "version": "6b16b94d7c51cbe5b1fa42aac98241d5"
