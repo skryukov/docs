@@ -136,6 +136,49 @@ export default function Edit() {
 
 When using the Vue adapters, you may also access the errors via the `$page.props.errors` object.
 
+### Multiple Errors Per Field
+
+By default, Inertia's Laravel adapter returns only the first validation error for each field. You may opt-in to receiving all errors by setting the `$withAllErrors` property to `true` in your middleware.
+
+```php
+class HandleInertiaRequests extends Middleware
+{
+    protected $withAllErrors = true;
+
+    // ...
+}
+```
+
+When enabled, each field will contain an array of error strings instead of a single string.
+
+<CodeGroup>
+
+```vue Vue icon="vuejs"
+<p v-for="error in errors.email">{{ error }}</p>
+```
+
+```jsx React icon="react"
+{errors.email.map((error, index) => <p key={index}>{error}</p>)}
+```
+
+```svelte Svelte icon="s"
+{#each errors.email as error}
+    <p>{error}</p>
+{/each}
+```
+
+</CodeGroup>
+
+You may configure TypeScript to expect arrays instead of strings in a `global.d.ts` file.
+
+```ts
+declare module '@inertiajs/core' {
+    export interface InertiaConfig {
+        errorValueType: string[]
+    }
+}
+```
+
 ## Repopulating Input
 
 While handling errors in Inertia is similar to full page form submissions, Inertia offers even more benefits. In fact, you don't even need to manually repopulate old form input data.
