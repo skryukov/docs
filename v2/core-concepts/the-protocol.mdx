@@ -169,6 +169,20 @@ The following headers should be sent by your server-side adapter in Inertia resp
   Set to `X-Inertia` to help browsers correctly differentiate between HTML and JSON responses.
 </ParamField>
 
+The following headers are used for [Precognition](/v2/the-basics/forms#precognition) validation responses.
+
+<ParamField header="Precognition" type="string">
+  Set to `true` to indicate this is a Precognition validation response.
+</ParamField>
+
+<ParamField header="Precognition-Success" type="string">
+  Set to `true` when validation passes with no errors, combined with a `204 No Content` status code.
+</ParamField>
+
+<ParamField header="Vary" type="string">
+  Set to `Precognition` on all responses when the Precognition middleware is applied.
+</ParamField>
+
 ## The Page Object
 
 Inertia shares data between the server and client via a page object. This object includes the necessary information required to render the page component, update the browser's history state, and track the site's asset version. The page object can include the following properties:
