@@ -2201,7 +2201,7 @@ The `touch()` method marks fields as "touched" without triggering validation. Yo
 
 #### Options
 
-Validation requests are automatically debounced (1500ms by default). You may customize this timeout using `setValidationTimeout()`.
+Validation requests are automatically debounced. The first request fires immediately, then subsequent changes are debounced (1500ms by default). You may customize this timeout using `setValidationTimeout()`.
 
 <CodeGroup>
 
