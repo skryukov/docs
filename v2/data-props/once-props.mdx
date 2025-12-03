@@ -14,9 +14,9 @@ return Inertia::render('Settings', [
 ]);
 ```
 
-Once the client has received this prop, subsequent requests will skip resolving the callback entirely and the prop will be excluded from the response. The client will automatically reuse the remembered value.
+After the client has received this prop, subsequent requests will skip resolving the callback entirely and the prop will be excluded from the response. The client will automatically reuse the remembered value.
 
-Keep in mind that navigating to a page that doesn't include the once prop will break the chain. The backend will resolve the prop again when you navigate to a page that includes it.
+Navigating to a page without the once prop will break the chain, and the prop will be resolved again on the next page that has it.
 
 ## Sharing Once Props
 
@@ -66,7 +66,7 @@ return Inertia::render('Settings', [
 
 ## Setting an Expiration
 
-You may set an expiration time using the `until()` method. This method accepts a `DateTimeInterface`, `DateInterval` instance, or an integer number of seconds. The prop will be refreshed on a subsequent visit after the expiration time has passed.
+You may set an expiration time using the `until()` method. This method accepts a `DateTimeInterface`, `DateInterval`, or an integer (seconds). The prop will be refreshed on a subsequent visit after the expiration time has passed.
 
 ```php
 return Inertia::render('Dashboard', [
@@ -79,18 +79,18 @@ return Inertia::render('Dashboard', [
 You may assign a custom key using the `as()` method. This is useful when you want to share data across multiple pages while using different prop names.
 
 ```php
-// Checkout page
-return Inertia::render('Checkout', [
-    'shippingCountries' => Inertia::once(fn () => Country::all())->as('countries'),
+// Team member list...
+return Inertia::render('Team/Index', [
+    'memberRoles' => Inertia::once(fn () => Role::all())->as('roles'),
 ]);
 
-// Settings page
-return Inertia::render('Settings', [
-    'availableCountries' => Inertia::once(fn () => Country::all())->as('countries'),
+// Invite form...
+return Inertia::render('Team/Invite', [
+    'availableRoles' => Inertia::once(fn () => Role::all())->as('roles'),
 ]);
 ```
 
-Both pages share the same underlying data because they use the same custom key. The prop will only be resolved once, even though the prop names differ.
+Both pages share the same underlying data because they use the same custom key, so the prop is only resolved for whichever page you visit first.
 
 ## Prefetching
 
