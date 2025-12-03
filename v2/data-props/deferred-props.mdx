@@ -109,6 +109,8 @@ export default () => (
 
 </CodeGroup>
 
+## Multiple Deferred Props
+
 If you need to wait for multiple deferred props to become available, you can specify an array to the `data` prop.
 
 <CodeGroup>
@@ -173,3 +175,15 @@ export default () => (
 ```
 
 </CodeGroup>
+
+## Combining with Once Props
+
+You may chain the `once()` modifier onto a deferred prop to ensure the data is resolved only once and remembered by the client across subsequent navigations.
+
+```php
+return Inertia::render('Dashboard', [
+    'stats' => Inertia::defer(fn () => Stats::generate())->once(),
+]);
+```
+
+For more information on once props, see the [once props](/v2/data-props/once-props) documentation.

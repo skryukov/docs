@@ -121,6 +121,7 @@
                             "v2/data-props/partial-reloads",
                             "v2/data-props/deferred-props",
                             "v2/data-props/merging-props",
+                            "v2/data-props/once-props",
                             "v2/data-props/polling",
                             "v2/data-props/prefetching",
                             "v2/data-props/load-when-visible",
