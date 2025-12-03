@@ -2,7 +2,7 @@
 title: Once Props
 ---
 
-Some data rarely changes or is expensive to compute. Rather than resolving this data on every request, you may use _once props_. These props are remembered by the client and reused on subsequent pages that include the same prop. This makes them ideal for [shared data](/v2/data-props/shared-data).
+Some data rarely changes, is expensive to compute, or is simply large. Rather than including this data in every response, you may use _once props_. These props are remembered by the client and reused on subsequent pages that include the same prop. This makes them ideal for [shared data](/v2/data-props/shared-data).
 
 ## Creating Once Props
 
@@ -42,7 +42,7 @@ You may set an expiration time using the `until()` method. This method accepts a
 
 ```php
 return Inertia::render('Dashboard', [
-    'rates' => Inertia::once(fn () => ExchangeRate::all())->until(now()->addHour()),
+    'rates' => Inertia::once(fn () => ExchangeRate::all())->until(now()->addDay()),
 ]);
 ```
 
@@ -72,7 +72,7 @@ You may share once props globally using the `Inertia::share()` method.
 Inertia::share('countries', Inertia::once(fn () => Country::all()));
 ```
 
-Or use the `shareOnce()` helper method.
+Alternatively, you may use the `shareOnce()` helper method for a cleaner syntax.
 
 ```php
 Inertia::shareOnce('countries', fn () => Country::all());
@@ -81,7 +81,7 @@ Inertia::shareOnce('countries', fn () => Country::all());
 You may also chain `as()`, `fresh()`, and `until()` onto this method.
 
 ```php
-Inertia::shareOnce('countries', fn () => Country::all())->until(3600);
+Inertia::shareOnce('countries', fn () => Country::all())->until(now()->addDay());
 ```
 
 You may also define a dedicated `shareOnce()` method in your middleware.
@@ -102,7 +102,7 @@ class HandleInertiaRequests extends Middleware
 
 Once props work with [prefetching](/v2/data-props/prefetching). The client automatically includes any remembered once props in prefetched responses, so navigating to a prefetched page will already have the once props available.
 
-The prefetch cache also respects once prop expiration. Prefetched pages containing an expired once prop will be invalidated.
+Prefetched pages containing an expired once prop will be invalidated from the cache.
 
 ## Combining with Other Prop Types
 
