@@ -84,16 +84,16 @@ You may also chain `as()`, `fresh()`, and `until()` onto this method.
 Inertia::shareOnce('countries', fn () => Country::all())->until(now()->addDay());
 ```
 
-You may also define a dedicated `shareOnce()` method in your middleware.
+You may also define a dedicated `shareOnce()` method in your middleware. The middleware will evaluate both `share()` and `shareOnce()`, merging the results.
 
 ```php
 class HandleInertiaRequests extends Middleware
 {
     public function shareOnce(Request $request): array
     {
-        return [
+        return array_merge(parent::shareOnce($request), [
             'countries' => fn () => Country::all(),
-        ];
+        ]);
     }
 }
 ```

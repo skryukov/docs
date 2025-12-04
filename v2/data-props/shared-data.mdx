@@ -63,16 +63,16 @@ class HandleInertiaRequests extends Middleware
 }
 ```
 
-Alternatively, you may define a dedicated `shareOnce()` method in the middleware.
+Alternatively, you may define a dedicated `shareOnce()` method in the middleware. The middleware will evaluate both `share()` and `shareOnce()`, merging the results.
 
 ```php
 class HandleInertiaRequests extends Middleware
 {
     public function shareOnce(Request $request): array
     {
-        return [
+        return array_merge(parent::shareOnce($request), [
             'countries' => fn () => Country::all(),
-        ];
+        ]);
     }
 }
 ```
