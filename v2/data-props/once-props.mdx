@@ -14,9 +14,9 @@ return Inertia::render('Billing', [
 ]);
 ```
 
-After the client has received this prop, subsequent requests will skip resolving the callback entirely and the prop will be excluded from the response. The client will automatically reuse the remembered value.
+After the client has received this prop, subsequent requests will skip resolving the callback and exclude the prop from the response. The client only remembers once props while navigating between pages that include them.
 
-Navigating to a page without the once prop will break the chain, and the prop will be resolved again on the next page that has it.
+Navigating to a page without the once prop will forget the remembered value, and it will be resolved again on the next page that has it. In practice, this is rarely an issue since once props are typically used as shared data or within a specific section of your application.
 
 ## Forcing a Refresh
 
