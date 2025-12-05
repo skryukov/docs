@@ -36,6 +36,32 @@ return Inertia::render('Billing', [
 ]);
 ```
 
+## Refreshing from the Client
+
+You may refresh a once prop from the client-side using a [partial reload](/v2/data-props/partial-reloads). The server will always resolve a once prop when explicitly requested.
+
+<CodeGroup>
+
+```js Vue icon="vuejs"
+import { router } from '@inertiajs/vue3'
+
+router.reload({ only: ['plans'] })
+```
+
+```js React icon="react"
+import { router } from '@inertiajs/react'
+
+router.reload({ only: ['plans'] })
+```
+
+```js Svelte icon="s"
+import { router } from '@inertiajs/svelte'
+
+router.reload({ only: ['plans'] })
+```
+
+</CodeGroup>
+
 ## Setting an Expiration
 
 You may set an expiration time using the `until()` method. This method accepts a `DateTimeInterface`, `DateInterval`, or an integer (seconds). The prop will be refreshed on a subsequent visit after the expiration time has passed.
