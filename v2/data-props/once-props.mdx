@@ -62,7 +62,7 @@ router.reload({ only: ['plans'] })
 
 </CodeGroup>
 
-## Setting an Expiration
+## Expiration
 
 You may set an expiration time using the `until()` method. This method accepts a `DateTimeInterface`, `DateInterval`, or an integer (seconds). The prop will be refreshed on a subsequent visit after the expiration time has passed.
 
@@ -74,7 +74,7 @@ return Inertia::render('Dashboard', [
 
 ## Custom Keys
 
-You may assign a custom key using the `as()` method. This is useful when you want to share data across multiple pages while using different prop names.
+You may assign a custom key to the prop using the `as()` method. This is useful when you want to share data across multiple pages while using different prop names.
 
 ```php
 // Team member list...
@@ -98,19 +98,19 @@ You may share once props globally using the `Inertia::share()` method.
 Inertia::share('countries', Inertia::once(fn () => Country::all()));
 ```
 
-Alternatively, you may use the `shareOnce()` helper method for a cleaner syntax.
+Or, for convenience, you may use the `shareOnce()` method.
 
 ```php
 Inertia::shareOnce('countries', fn () => Country::all());
 ```
 
-You may also chain `as()`, `fresh()`, and `until()` onto this method.
+You may also chain `as()`, `fresh()`, and `until()` onto the `shareOnce` method.
 
 ```php
 Inertia::shareOnce('countries', fn () => Country::all())->until(now()->addDay());
 ```
 
-You may also define a dedicated `shareOnce()` method in your middleware. The middleware will evaluate both `share()` and `shareOnce()`, merging the results.
+Additionally, you may define a dedicated `shareOnce()` method in your middleware. The middleware will evaluate both `share()` and `shareOnce()`, merging the results.
 
 ```php
 class HandleInertiaRequests extends Middleware
@@ -126,7 +126,7 @@ class HandleInertiaRequests extends Middleware
 
 ## Prefetching
 
-Once props work with [prefetching](/v2/data-props/prefetching). The client automatically includes any remembered once props in prefetched responses, so navigating to a prefetched page will already have the once props available.
+Once props are compatible with [prefetching](/v2/data-props/prefetching). The client automatically includes any remembered once props in prefetched responses, so navigating to a prefetched page will already have the once props available.
 
 Prefetched pages containing an expired once prop will be invalidated from the cache.
 
