@@ -143,7 +143,7 @@ The following headers are automatically sent by Inertia when making requests. Yo
   Indicates whether the requested data should be appended or prepended when using [Infinite scroll](/v2/data-props/infinite-scroll).
 </ParamField>
 
-<ParamField header="X-Inertia-Page-Once-Props" type="string">
+<ParamField header="X-Inertia-Except-Once-Props" type="string">
   Comma-separated list of non-expired [once prop](/v2/data-props/once-props) keys already loaded on the client. The server will skip resolving these props unless explicitly requested via a partial reload or force refreshed server-side.
 </ParamField>
 
@@ -401,7 +401,7 @@ When using [once props](/v2/data-props/once-props), the page object includes an 
 }
 ```
 
-When navigating to a subsequent page that includes the same once prop, the client sends the loaded keys in the `X-Inertia-Page-Once-Props` header. The server skips resolving these props and excludes them from the response. The client reuses the previously loaded values.
+When navigating to a subsequent page that includes the same once prop, the client sends the loaded keys in the `X-Inertia-Except-Once-Props` header. The server skips resolving these props and excludes them from the response. The client reuses the previously loaded values.
 
 ```http
 REQUEST
@@ -410,7 +410,7 @@ Accept: text/html, application/xhtml+xml
 X-Requested-With: XMLHttpRequest
 X-Inertia: true
 X-Inertia-Version: 6b16b94d7c51cbe5b1fa42aac98241d5
-X-Inertia-Page-Once-Props: plans
+X-Inertia-Except-Once-Props: plans
 
 RESPONSE
 HTTP/1.1 200 OK
