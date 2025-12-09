@@ -47,6 +47,42 @@ Shared data should be used sparingly as all shared data is included with every r
 
 Page props and shared data are merged together, so be sure to namespace your shared data appropriately to avoid collisions.
 
+## Sharing Once Props
+
+You may share data that is resolved only once and remembered by the client across subsequent navigations using [once props](/v2/data-props/once-props).
+
+```php
+class HandleInertiaRequests extends Middleware
+{
+    public function share(Request $request)
+    {
+        return array_merge(parent::share($request), [
+            'countries' => Inertia::once(fn () => Country::all()),
+        ]);
+    }
+}
+```
+
+Alternatively, you may define a dedicated `shareOnce()` method in the middleware. The middleware will evaluate both `share()` and `shareOnce()`, merging the results.
+
+```php
+class HandleInertiaRequests extends Middleware
+{
+    public function shareOnce(Request $request): array
+    {
+        return array_merge(parent::shareOnce($request), [
+            'countries' => fn () => Country::all(),
+        ]);
+    }
+}
+```
+
+You may also share once props manually using the `Inertia::shareOnce()`.
+
+```php
+Inertia::shareOnce('countries', fn () => Country::all());
+```
+
 ## Accessing Shared Data
 
 Once you have shared the data server-side, you will be able to access it within any of your pages or components. Here's an example of how to access shared data in a layout component.

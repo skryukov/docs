@@ -163,3 +163,15 @@ Here's a summary of each approach:
 | <span style={{whiteSpace: 'nowrap'}}>`fn () => User::all()`</span> | Always | Optionally | Only when needed |                                                                                                                                                                               |
 | <span style={{whiteSpace: 'nowrap'}}>`Inertia::optional(fn () => User::all())`</span> | Never | Optionally | Only when needed |                                                                                                                                                                               |
 | <span style={{whiteSpace: 'nowrap'}}>`Inertia::always(fn () => User::all())`</span> | Always | Always | Always |                                                                                                                                                                               |
+
+## Combining with Once Props
+
+You may chain the `once()` modifier onto an optional prop to ensure the data is resolved only once and remembered by the client across subsequent navigations.
+
+```php
+return Inertia::render('Users/Index', [
+    'users' => Inertia::optional(fn () => User::all())->once(),
+]);
+```
+
+For more information on once props, see the [once props](/v2/data-props/once-props) documentation.
