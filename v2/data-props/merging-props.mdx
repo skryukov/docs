@@ -109,7 +109,7 @@ You can also merge props directly on the client side without making a server req
 
 ## Combining with Deferred Props
 
-You can also combine [deferred props](/v2/data-props/deferred-props) with mergeable props to defer the loading of the prop and ultimately mark it as mergeable once it's loaded.
+You may combine [deferred props](/v2/data-props/deferred-props) with mergeable props to defer the loading of the prop and ultimately mark it as mergeable once it's loaded.
 
 ```php
 Route::get('/users', function () {
@@ -121,6 +121,18 @@ Route::get('/users', function () {
     ]);
 });
 ```
+
+## Combining with Once Props
+
+You may chain the `once()` modifier onto a merge prop to ensure the data is resolved only once and remembered by the client across subsequent navigations.
+
+```php
+return Inertia::render('Users/Index', [
+    'activity' => Inertia::merge(fn () => $user->recentActivity())->once(),
+]);
+```
+
+For more information on once props, see the [once props](/v2/data-props/once-props) documentation.
 
 ## Resetting Props
 

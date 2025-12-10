@@ -247,3 +247,20 @@ createInertiaApp({
 ```
 
 If you change the `id` of the root element, be sure to update it [server-side](/v2/installation/server-side-setup#root-template) as well.
+
+## Script Element for Page Data
+
+By default, Inertia stores the initial page data in a `data-page` attribute on the root element. You may configure Inertia to use a `<script type="application/json">` element instead, which is slightly faster and easier to inspect in your browser's dev tools.
+
+```js
+createInertiaApp({
+    // ...
+    defaults: {
+        future: {
+            useScriptElementForInitialPage: true,
+        },
+    },
+})
+```
+
+Be sure to also update your [SSR entry point](/v2/advanced/server-side-rendering#add-server-entry-point) if you're using server-side rendering. Laravel users should also set the `inertia.use_script_element_for_initial_page` config value to `true` so the `@inertia` Blade directive outputs a script element.
