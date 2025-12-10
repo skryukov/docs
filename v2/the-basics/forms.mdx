@@ -956,6 +956,8 @@ In React and Vue, refs provide access to all form methods and reactive state. In
 
 ### Precognition
 
+<Badge>v2.3+</Badge>
+
 The `<Form>` component includes built-in support for [Laravel Precognition](https://laravel.com/docs/precognition), enabling real-time form validation without duplicating your server-side validation rules on the client.
 
 <Note>
@@ -1984,7 +1986,13 @@ form.submit(store())
 
 ### Precognition
 
+<Badge>v2.3+</Badge>
+
 Just like the `<Form>` component, the `useForm` helper supports [Precognition](#precognition) for real-time validation. You may enable it by chaining the `withPrecognition()` method with the HTTP method and endpoint for validation requests.
+
+<Note>
+Precognition requires server-side support. Laravel users should see the [Laravel Precognition documentation](https://laravel.com/docs/precognition) for setup instructions. For other frameworks, see the [protocol page](/v2/core-concepts/the-protocol#request-headers) for implementation details.
+</Note>
 
 <CodeGroup>
 
@@ -2025,6 +2033,10 @@ const form = useForm('post', '/users', {
     email: '',
 })
 ```
+
+<Tip>
+Since Precognition is now built-in, you may remove the `laravel-precognition` package and import `useForm` from your Inertia adapter instead.
+</Tip>
 
 You may also use [Wayfinder](https://github.com/laravel/wayfinder) when enabling Precognition.
 
