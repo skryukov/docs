@@ -344,8 +344,7 @@
         "body": {
             "family": "Instrument Sans",
             "source": "/assets/fonts/InstrumentSans.woff2",
-            "format": "woff2",
-            "weight": 400
+            "format": "woff2"
         },
         "heading": {
             "family": "Instrument Sans",
