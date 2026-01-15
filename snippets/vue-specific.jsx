@@ -1,6 +1,6 @@
 export const VueSpecific = ({ children }) => {
     const [code, setCode] = useState(
-        localStorage.getItem("code")?.replace(/"/g, "") || null,
+        localStorage.getItem("code")?.replace(/"/g, "") || "Vue",
     );
 
     const callback = useCallback((event) => {
