@@ -12,67 +12,6 @@
         "global": {},
         "versions": [
             {
-                "version": "1.x",
-                "groups": [
-                    {
-                        "group": "Getting Started",
-                        "pages": [
-                            "v1/getting-started/index",
-                            "v1/getting-started/demo-application",
-                            "v1/getting-started/upgrade-guide"
-                        ]
-                    },
-                    {
-                        "group": "Installation",
-                        "pages": [
-                            "v1/installation/server-side-setup",
-                            "v1/installation/client-side-setup"
-                        ]
-                    },
-                    {
-                        "group": "Core Concepts",
-                        "pages": [
-                            "v1/core-concepts/who-is-it-for",
-                            "v1/core-concepts/how-it-works",
-                            "v1/core-concepts/the-protocol"
-                        ]
-                    },
-                    {
-                        "group": "The Basics",
-                        "pages": [
-                            "v1/the-basics/pages",
-                            "v1/the-basics/responses",
-                            "v1/the-basics/redirects",
-                            "v1/the-basics/routing",
-                            "v1/the-basics/title-and-meta",
-                            "v1/the-basics/links",
-                            "v1/the-basics/manual-visits",
-                            "v1/the-basics/forms",
-                            "v1/the-basics/file-uploads",
-                            "v1/the-basics/validation",
-                            "v1/the-basics/shared-data"
-                        ]
-                    },
-                    {
-                        "group": "Advanced",
-                        "pages": [
-                            "v1/advanced/events",
-                            "v1/advanced/testing",
-                            "v1/advanced/partial-reloads",
-                            "v1/advanced/scroll-management",
-                            "v1/advanced/authentication",
-                            "v1/advanced/authorization",
-                            "v1/advanced/csrf-protection",
-                            "v1/advanced/error-handling",
-                            "v1/advanced/asset-versioning",
-                            "v1/advanced/progress-indicators",
-                            "v1/advanced/remembering-state",
-                            "v1/advanced/server-side-rendering"
-                        ]
-                    }
-                ]
-            },
-            {
                 "version": "2.x",
                 "groups": [
                     {
@@ -154,6 +93,67 @@
                         ]
                     }
                 ]
+            },
+            {
+                "version": "1.x",
+                "groups": [
+                    {
+                        "group": "Getting Started",
+                        "pages": [
+                            "v1/getting-started/index",
+                            "v1/getting-started/demo-application",
+                            "v1/getting-started/upgrade-guide"
+                        ]
+                    },
+                    {
+                        "group": "Installation",
+                        "pages": [
+                            "v1/installation/server-side-setup",
+                            "v1/installation/client-side-setup"
+                        ]
+                    },
+                    {
+                        "group": "Core Concepts",
+                        "pages": [
+                            "v1/core-concepts/who-is-it-for",
+                            "v1/core-concepts/how-it-works",
+                            "v1/core-concepts/the-protocol"
+                        ]
+                    },
+                    {
+                        "group": "The Basics",
+                        "pages": [
+                            "v1/the-basics/pages",
+                            "v1/the-basics/responses",
+                            "v1/the-basics/redirects",
+                            "v1/the-basics/routing",
+                            "v1/the-basics/title-and-meta",
+                            "v1/the-basics/links",
+                            "v1/the-basics/manual-visits",
+                            "v1/the-basics/forms",
+                            "v1/the-basics/file-uploads",
+                            "v1/the-basics/validation",
+                            "v1/the-basics/shared-data"
+                        ]
+                    },
+                    {
+                        "group": "Advanced",
+                        "pages": [
+                            "v1/advanced/events",
+                            "v1/advanced/testing",
+                            "v1/advanced/partial-reloads",
+                            "v1/advanced/scroll-management",
+                            "v1/advanced/authentication",
+                            "v1/advanced/authorization",
+                            "v1/advanced/csrf-protection",
+                            "v1/advanced/error-handling",
+                            "v1/advanced/asset-versioning",
+                            "v1/advanced/progress-indicators",
+                            "v1/advanced/remembering-state",
+                            "v1/advanced/server-side-rendering"
+                        ]
+                    }
+                ]
             }
         ]
     },
@@ -181,10 +181,6 @@
         }
     },
     "redirects": [
-        {
-            "source": "/index",
-            "destination": "/v2/getting-started/index"
-        },
         {
             "source": "/demo-application",
             "destination": "/v2/getting-started/demo-application"
