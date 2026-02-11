@@ -905,7 +905,7 @@ function handleSubmit() {
     <button type="submit">Submit</button>
 </Form>
 
-<button on:click={handleSubmit}>Submit Programmatically</button>
+<button onclick={handleSubmit}>Submit Programmatically</button>
 ```
 
 </CodeGroup>
@@ -967,11 +967,11 @@ import { useFormContext } from '@inertiajs/svelte'
 const form = useFormContext()
 </script>
 
-{#if $form}
-    {#if $form.isDirty}<span>Unsaved changes</span>{/if}
-    {#if $form.errors.name}<span>{$form.errors.name}</span>{/if}
-    <button type="button" on:click={() => $form.submit()}>Submit</button>
-    <button type="button" on:click={() => $form.reset()}>Reset</button>
+{#if form}
+    {#if form.isDirty}<span>Unsaved changes</span>{/if}
+    {#if form.errors.name}<span>{form.errors.name}</span>{/if}
+    <button type="button" onclick={() => form.submit()}>Submit</button>
+    <button type="button" onclick={() => form.reset()}>Reset</button>
 {/if}
 ```
 
@@ -1429,21 +1429,21 @@ const form = useForm({
 
 function submit(e) {
     e.preventDefault()
-    $form.post('/login')
+    form.post('/login')
 }
 </script>
 
 <form onsubmit={submit}>
-    <input type="text" bind:value={$form.email} />
-    {#if $form.errors.email}
-        <div class="form-error">{$form.errors.email}</div>
+    <input type="text" bind:value={form.email} />
+    {#if form.errors.email}
+        <div class="form-error">{form.errors.email}</div>
     {/if}
-    <input type="password" bind:value={$form.password} />
-    {#if $form.errors.password}
-        <div class="form-error">{$form.errors.password}</div>
+    <input type="password" bind:value={form.password} />
+    {#if form.errors.password}
+        <div class="form-error">{form.errors.password}</div>
     {/if}
-    <input type="checkbox" bind:checked={$form.remember} /> Remember Me
-    <button type="submit" disabled={$form.processing}>Submit</button>
+    <input type="checkbox" bind:checked={form.remember} /> Remember Me
+    <button type="submit" disabled={form.processing}>Submit</button>
 </form>
 ```
 
@@ -1474,12 +1474,12 @@ destroy(url, options)
 ```
 
 ```js Svelte icon="s"
-$form.submit(method, url, options);
-$form.get(url, options);
-$form.post(url, options);
-$form.put(url, options);
-$form.patch(url, options);
-$form.delete(url, options);
+form.submit(method, url, options);
+form.get(url, options);
+form.post(url, options);
+form.put(url, options);
+form.patch(url, options);
+form.delete(url, options);
 ```
 
 </CodeGroup>
@@ -1505,9 +1505,9 @@ post('/profile', {
 ```
 
 ```js Svelte icon="s"
-$form.post("/profile", {
+form.post("/profile", {
   preserveScroll: true,
-  onSuccess: () => $form.reset("password"),
+  onSuccess: () => form.reset("password"),
 });
 ```
 
@@ -1561,7 +1561,7 @@ const { processing } = useForm({ ... })
 ```
 
 ```svelte Svelte icon="s"
-<button type="submit" disabled={$form.processing}>Submit</button>
+<button type="submit" disabled={form.processing}>Submit</button>
 ```
 
 </CodeGroup>
@@ -1587,9 +1587,9 @@ const { progress } = useForm({ ... })
 ```
 
 ```svelte Svelte icon="s"
-{#if $form.progress}
-    <progress value={$form.progress.percentage} max="100">
-        {$form.progress.percentage}%
+{#if form.progress}
+    <progress value={form.progress.percentage} max="100">
+        {form.progress.percentage}%
     </progress>
 {/if}
 ```
@@ -1613,8 +1613,8 @@ const { errors } = useForm({ ... })
 ```
 
 ```svelte Svelte icon="s"
-{#if $form.errors.email}
-    <div>{$form.errors.email}</div>
+{#if form.errors.email}
+    <div>{form.errors.email}</div>
 {/if}
 ```
 
@@ -1646,10 +1646,10 @@ clearErrors('field', 'anotherfield')
 
 ```js Svelte icon="s"
 // Clear all errors...
-$form.clearErrors();
+form.clearErrors();
 
 // Clear errors for specific fields...
-$form.clearErrors("field", "anotherfield");
+form.clearErrors("field", "anotherfield");
 ```
 
 </CodeGroup>
@@ -1684,10 +1684,10 @@ setError({
 
 ```js Svelte icon="s"
 // Set a single error
-$form.setError("field", "Your error message.");
+form.setError("field", "Your error message.");
 
 // Set multiple errors at once
-$form.setError({
+form.setError({
   foo: "Your error message for the foo field.",
   bar: "Some other error for the bar field.",
 });
@@ -1727,10 +1727,10 @@ reset('field', 'anotherfield')
 
 ```js Svelte icon="s"
 // Reset the form...
-$form.reset();
+form.reset();
 
 // Reset specific fields...
-$form.reset("field", "anotherfield");
+form.reset("field", "anotherfield");
 ```
 
 </CodeGroup>
@@ -1759,10 +1759,10 @@ resetAndClearErrors('field', 'anotherfield')
 
 ```js Svelte icon="s"
 // Reset the form and clear all errors...
-$form.resetAndClearErrors();
+form.resetAndClearErrors();
 
 // Reset specific fields and clear their errors...
-$form.resetAndClearErrors("field", "anotherfield");
+form.resetAndClearErrors("field", "anotherfield");
 ```
 
 </CodeGroup>
@@ -1805,13 +1805,13 @@ setDefaults({
 
 ```js Svelte icon="s"
 // Set the form's current values as the new defaults...
-$form.defaults();
+form.defaults();
 
 // Update the default value of a single field...
-$form.defaults("email", "updated-default@example.com");
+form.defaults("email", "updated-default@example.com");
 
 // Change the default value of multiple fields...
-$form.defaults({
+form.defaults({
   name: "Updated Example",
   email: "updated-default@example.com",
 });
@@ -1836,7 +1836,7 @@ const { isDirty } = useForm({ ... })
 ```
 
 ```svelte Svelte icon="s"
-{#if $form.isDirty}
+{#if form.isDirty}
     <div>There are unsaved form changes.</div>
 {/if}
 ```
@@ -1860,7 +1860,7 @@ cancel()
 ```
 
 ```js Svelte icon="s"
-$form.cancel();
+form.cancel();
 ```
 
 </CodeGroup>
@@ -2138,18 +2138,18 @@ const form = useForm('post', '/users', {
 })
 </script>
 
-<form onsubmit={(e) => { e.preventDefault(); $form.post('/users') }}>
-    <input bind:value={$form.name} onchange={() => $form.validate('name')} />
-    {#if $form.invalid('name')}
-        <p>{$form.errors.name}</p>
+<form onsubmit={(e) => { e.preventDefault(); form.post('/users') }}>
+    <input bind:value={form.name} onchange={() => form.validate('name')} />
+    {#if form.invalid('name')}
+        <p>{form.errors.name}</p>
     {/if}
 
-    <input bind:value={$form.email} onchange={() => $form.validate('email')} />
-    {#if $form.invalid('email')}
-        <p>{$form.errors.email}</p>
+    <input bind:value={form.email} onchange={() => form.validate('email')} />
+    {#if form.invalid('email')}
+        <p>{form.errors.email}</p>
     {/if}
 
-    {#if $form.validating}
+    {#if form.validating}
         <p>Validating...</p>
     {/if}
 
@@ -2186,12 +2186,12 @@ The `touch()` method marks fields as "touched" without triggering validation. Yo
 ```
 
 ```svelte Svelte icon="s"
-<input bind:value={$form.name} on:blur={() => $form.touch('name')} />
-<input bind:value={$form.email} on:blur={() => $form.touch('email')} />
+<input bind:value={form.name} onblur={() => form.touch('name')} />
+<input bind:value={form.email} onblur={() => form.touch('email')} />
 
-<button type="button" on:click={() => $form.validate()}>Validate Touched Fields</button>
+<button type="button" onclick={() => form.validate()}>Validate Touched Fields</button>
 
-{#if $form.touched('name')}
+{#if form.touched('name')}
     <p>Name has been touched</p>
 {/if}
 ```
@@ -2223,7 +2223,7 @@ const form = useForm("post", "/users", {
   name: "",
 });
 
-$form.setValidationTimeout(500);
+form.setValidationTimeout(500);
 ```
 
 </CodeGroup>
@@ -2251,7 +2251,7 @@ const form = useForm("post", "/users", {
   avatar: null,
 });
 
-$form.validateFiles();
+form.validateFiles();
 ```
 
 </CodeGroup>
@@ -2279,7 +2279,7 @@ const form = useForm("post", "/users", {
   name: "",
 });
 
-$form.withAllErrors();
+form.withAllErrors();
 ```
 
 </CodeGroup>

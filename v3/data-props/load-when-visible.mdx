@@ -297,11 +297,13 @@ export default () => (
     let { permissions } = $props()
 </script>
 
-<WhenVisible data="permissions" always let:fetching>
-    <PermissionsChildComponent />
-    {#if fetching}
-        <div>Refreshing...</div>
-    {/if}
+<WhenVisible data="permissions" always>
+    {#snippet children({ fetching })}
+        <PermissionsChildComponent />
+        {#if fetching}
+            <div>Refreshing...</div>
+        {/if}
+    {/snippet}
 
     {#snippet fallback()}
         <div>Loading...</div>

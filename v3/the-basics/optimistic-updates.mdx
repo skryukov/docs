@@ -173,15 +173,15 @@ const form = useForm({
 })
 
 function save() {
-    $form.optimistic((props) => ({
+    form.optimistic((props) => ({
         ...props,
-        posts: [...props.posts, { title: $form.title }],
+        posts: [...props.posts, { title: form.title }],
     })).post('/posts')
 }
 </script>
 
-<input bind:value={$form.title} />
-<button onclick={save} disabled={$form.processing}>Save</button>
+<input bind:value={form.title} />
+<button onclick={save} disabled={form.processing}>Save</button>
 ```
 
 </CodeGroup>
@@ -226,7 +226,7 @@ const form = useHttp({
     likes: 0,
 })
 
-$form.optimistic((data) => ({
+form.optimistic((data) => ({
     likes: data.likes + 1,
 })).post('/api/likes')
 ```

@@ -73,7 +73,7 @@ const http = useHttp({
 })
 
 function search() {
-    $http.get('/api/search', {
+    http.get('/api/search', {
         onSuccess: (response) => {
             console.log(response)
         },
@@ -81,8 +81,8 @@ function search() {
 }
 </script>
 
-<input bind:value={$http.query} oninput={search} />
-{#if $http.processing}
+<input bind:value={http.query} oninput={search} />
+{#if http.processing}
     <div>Searching...</div>
 {/if}
 ```
@@ -118,12 +118,12 @@ submit(method, url, options)
 ```
 
 ```js Svelte icon="s"
-$http.get(url, options)
-$http.post(url, options)
-$http.put(url, options)
-$http.patch(url, options)
-$http.delete(url, options)
-$http.submit(method, url, options)
+http.get(url, options)
+http.post(url, options)
+http.put(url, options)
+http.patch(url, options)
+http.delete(url, options)
+http.submit(method, url, options)
 ```
 
 </CodeGroup>
@@ -149,7 +149,7 @@ const response = await post('/api/comments', {
 ```
 
 ```js Svelte icon="s"
-const response = await $http.post('/api/comments', {
+const response = await http.post('/api/comments', {
     onError: (errors) => {
         console.log(errors)
     },
@@ -241,21 +241,21 @@ const http = useHttp({
 })
 
 function save() {
-    $http.post('/api/users')
+    http.post('/api/users')
 }
 </script>
 
-<input bind:value={$http.name} />
-{#if $http.errors.name}
-    <div>{$http.errors.name}</div>
+<input bind:value={http.name} />
+{#if http.errors.name}
+    <div>{http.errors.name}</div>
 {/if}
 
-<input bind:value={$http.email} />
-{#if $http.errors.email}
-    <div>{$http.errors.email}</div>
+<input bind:value={http.email} />
+{#if http.errors.email}
+    <div>{http.errors.email}</div>
 {/if}
 
-<button onclick={save} disabled={$http.processing}>Save</button>
+<button onclick={save} disabled={http.processing}>Save</button>
 ```
 
 </CodeGroup>
@@ -290,7 +290,7 @@ const http = useHttp({
     email: '',
 }).withAllErrors()
 
-// $http.errors.name === ['Name is required.', 'Name must be at least 3 characters.']
+// http.errors.name === ['Name is required.', 'Name must be at least 3 characters.']
 ```
 
 </CodeGroup>
@@ -350,15 +350,15 @@ const http = useHttp({
 })
 
 function upload() {
-    $http.post('/api/uploads')
+    http.post('/api/uploads')
 }
 </script>
 
-<input type="file" onchange={e => $http.file = e.target.files[0]} />
-{#if $http.progress}
-    <progress value={$http.progress.percentage} max="100" />
+<input type="file" onchange={e => http.file = e.target.files[0]} />
+{#if http.progress}
+    <progress value={http.progress.percentage} max="100" />
 {/if}
-<button onclick={upload} disabled={$http.processing}>Upload</button>
+<button onclick={upload} disabled={http.processing}>Upload</button>
 ```
 
 </CodeGroup>
@@ -380,7 +380,7 @@ cancel()
 ```
 
 ```js Svelte icon="s"
-$http.cancel()
+http.cancel()
 ```
 
 </CodeGroup>
@@ -407,7 +407,7 @@ post('/api/likes')
 ```
 
 ```js Svelte icon="s"
-$http.optimistic((data) => ({
+http.optimistic((data) => ({
     likes: data.likes + 1,
 })).post('/api/likes')
 ```

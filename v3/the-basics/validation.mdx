@@ -106,7 +106,7 @@ export default function Edit() {
 <script>
     import { router } from '@inertiajs/svelte'
 
-    export let errors = {}
+    let { errors = {} } = $props()
 
     let values = {
         first_name: null,
@@ -119,7 +119,7 @@ export default function Edit() {
     }
 </script>
 
-<form on:submit|preventDefault={handleSubmit}>
+<form onsubmit={(e) => { e.preventDefault(); handleSubmit() }}>
     <label for="first_name">First name:</label>
     <input id="first_name" bind:value={values.first_name}>
     {#if errors.first_name}<div>{errors.first_name}</div>{/if}
