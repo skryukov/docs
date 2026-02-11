@@ -233,23 +233,6 @@ createInertiaApp({
 
 If you change the `id` of the root element, be sure to update it [server-side](/v3/installation/server-side-setup#root-template) as well.
 
-## Initial Page Data
-
-By default, Inertia passes the initial page data via a `<script type="application/json">` element. You may revert to the legacy behavior of storing page data in a `data-page` attribute on the root element by setting the `legacy.useDataAttributeForInitialPage` option to `true`.
-
-```js
-createInertiaApp({
-  // ...
-  defaults: {
-    legacy: {
-      useDataAttributeForInitialPage: true,
-    },
-  },
-});
-```
-
-Laravel users should also set the `inertia.pages.use_data_attribute_for_initial_page` config value to `true` so the `@inertia` Blade directive outputs a data attribute instead of a script element.
-
 ## HTTP Client
 
 Inertia uses a built-in XHR client for all requests. No additional HTTP libraries like Axios are required.

@@ -121,11 +121,12 @@ router.post('/users', data, {
 
 ### Future Options Removed
 
-The `future` configuration namespace has been replaced by `legacy`, with inverted logic. Three future options have been removed entirely as their behavior is now always enabled:
+The `future` configuration namespace has been removed. All four future options from v2 are now always enabled and no longer configurable:
 
 - `future.preserveEqualProps`
 - `future.useDataInertiaHeadAttribute`
 - `future.useDialogForErrorModal`
+- `future.useScriptElementForInitialPage`
 
 ```js
 // Before (v2)
@@ -135,6 +136,7 @@ createInertiaApp({
             preserveEqualProps: true,
             useDataInertiaHeadAttribute: true,
             useDialogForErrorModal: true,
+            useScriptElementForInitialPage: true,
         },
     },
 })
@@ -145,19 +147,7 @@ createInertiaApp({
 })
 ```
 
-The fourth option, `future.useScriptElementForInitialPage`, has been flipped to `legacy.useDataAttributeForInitialPage`. The script element is now the default, so you only need this option if you want to revert to the old data attribute behavior:
-
-```js
-createInertiaApp({
-    defaults: {
-        legacy: {
-            useDataAttributeForInitialPage: true,
-        },
-    },
-})
-```
-
-Laravel users should also set the `pages.use_data_attribute_for_initial_page` option to `true` in their `config/inertia.php` file so the `@inertia` Blade directive outputs a data attribute instead of a script element.
+Initial page data is now always passed via a `<script type="application/json">` element. The legacy `data-page` attribute approach is no longer supported.
 
 ### Progress Indicator Exports Removed
 
@@ -213,15 +203,12 @@ The Laravel configuration file has been restructured. Page-related settings are 
     'ensure_pages_exist' => false,
     'paths' => [resource_path('js/Pages')],
     'extensions' => ['js', 'jsx', 'svelte', 'ts', 'tsx', 'vue'],
-    'use_data_attribute_for_initial_page' => false,
 ],
 
 'testing' => [
     'ensure_pages_exist' => true,
 ],
 ```
-
-The `use_data_attribute_for_initial_page` option is now under the `pages` key. When set to `true`, the `@inertia` Blade directive outputs a data attribute instead of a script element.
 
 You may publish the updated config file using:
 
