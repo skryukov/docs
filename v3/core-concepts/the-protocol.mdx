@@ -174,7 +174,11 @@ The following headers should be sent by your server-side adapter in Inertia resp
 
 <ParamField header="X-Inertia-Location" type="string">
   Used for external redirects when a `409 Conflict` response is returned due to
-  asset version mismatches.
+  asset version mismatches. Triggers a full `window.location` visit.
+</ParamField>
+
+<ParamField header="X-Inertia-Redirect" type="string">
+  Used for redirects containing URL fragments when a `409 Conflict` response is returned. Contains the full redirect URL including the fragment. Triggers a standard Inertia visit instead of a full page reload.
 </ParamField>
 
 <ParamField header="Vary" type="string">
@@ -227,6 +231,10 @@ Inertia shares data between the server and client via a page object. This object
 <ParamField body="clearHistory" type="boolean">
   Whether or not to clear any [encrypted history
   state](/v3/security/history-encryption#clearing-history).
+</ParamField>
+
+<ParamField body="preserveFragment" type="boolean">
+  Whether to [preserve the URL fragment](/v3/the-basics/redirects#preserving-fragments) from the original request across a redirect.
 </ParamField>
 
 <ParamField body="mergeProps" type="array">
@@ -550,7 +558,7 @@ Inertia uses specific HTTP status codes to handle different scenarios.
 | **200 OK**        | Standard successful response for both HTML and Inertia JSON responses.                                                                                                                                                                                                |
 | **302 Found**     | Standard redirect response. Inertia's server-side adapters automatically convert this to `303 See Other` when returned after `PUT`, `PATCH`, or `DELETE` requests.                                                                                                    |
 | **303 See Other** | Used for redirects after non-GET requests. This status code tells the browser to make a `GET` request to the redirect URL, preventing duplicate form submissions that could occur if the browser repeated the original request method.                                |
-| **409 Conflict**  | Returned when there's an asset version mismatch or for external redirects. For asset mismatches, this prompts a full page reload. For external redirects, the response includes an `X-Inertia-Location` header and triggers a `window.location` redirect client-side. |
+| **409 Conflict**  | Returned when there's an asset version mismatch, for external redirects, or for redirects containing URL fragments. For asset mismatches, this prompts a full page reload. For external redirects, the response includes an `X-Inertia-Location` header and triggers a `window.location` redirect. For fragment redirects, the response includes an `X-Inertia-Redirect` header and triggers a standard Inertia visit. |
 
 The following status codes are used for [Precognition](/v3/the-basics/forms#precognition) validation requests.
 

@@ -263,3 +263,34 @@ The deprecated `Inertia\Testing\Concerns\Has`, `Inertia\Testing\Concerns\Matchin
 ### Middleware Priority
 
 The Inertia middleware is now automatically registered in Laravel's [middleware priority](https://laravel.com/docs/middleware#sorting-middleware) list, ensuring it runs before middleware like `ThrottleRequests`. This fixes an issue where `PUT`/`PATCH`/`DELETE` requests that were rate-limited could receive a `302` redirect instead of the correct `303`, causing the browser to retry the original request method on the redirect target. No action is required.
+
+### Nested Prop Types
+
+Prop types like `Inertia::optional()`, `Inertia::defer()`, and `Inertia::merge()` now work inside closures and nested arrays. Inertia resolves them at any depth and uses dot-notation paths in partial reload metadata.
+
+```php
+return Inertia::render('Dashboard', [
+    'auth' => fn () => [
+        'user' => Auth::user(),
+        'notifications' => Inertia::defer(fn () => Auth::user()->unreadNotifications),
+        'invoices' => Inertia::optional(fn () => Auth::user()->invoices),
+    ],
+]);
+```
+
+On the client side, the `only` and `except` options, as well as the `Deferred` and `WhenVisible` components, all support dot-notation for targeting nested props.
+
+```js
+router.reload({ only: ['auth.notifications'] })
+```
+
+Classes implementing the [`ProvidesInertiaProperties`](/v3/the-basics/responses#providesinertiaproperties-interface) interface also work at any nesting level.
+
+```php
+return Inertia::render('Dashboard', [
+    'auth' => [
+        new AuthProps,
+        'team' => 'Inertia',
+    ],
+]);
+```
