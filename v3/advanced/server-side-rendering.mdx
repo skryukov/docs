@@ -77,9 +77,15 @@ The recommended way to configure SSR is with the `@inertiajs/vite` plugin. This 
 
 ### Development Mode
 
-The Vite plugin handles SSR automatically during development without running a separate Node.js server. It exposes a server endpoint that Laravel uses for rendering, complete with HMR support.
+The Vite plugin handles SSR automatically during development. There is no need to build your SSR bundle or start a separate Node.js server. Simply run your Vite dev server as usual:
 
-Simply run `npm run dev` as usual. SSR is handled by the Vite dev server.
+```bash
+npm run dev
+```
+
+The Vite plugin exposes a server endpoint that Laravel uses for rendering, complete with HMR support.
+
+<Note>The `vite build --ssr` and `php artisan inertia:start-ssr` commands are for [production](#production) only. You should not run them during development.</Note>
 
 ### Production
 
@@ -357,6 +363,8 @@ createServer(page =>
 </CodeGroup>
 
 ## Running the SSR Server
+
+<Note>The SSR server is only required in production. During development, the [Vite plugin](#development-mode) handles SSR automatically.</Note>
 
 Once you have built both your client-side and server-side bundles, you may start the SSR server using the following Artisan command.
 
