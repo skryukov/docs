@@ -19,7 +19,6 @@ You may chain the `optimistic()` method before any router visit. The callback re
 import { router } from '@inertiajs/vue3'
 
 router.optimistic((props) => ({
-    ...props,
     post: {
         ...props.post,
         likes: props.post.likes + 1,
@@ -31,7 +30,6 @@ router.optimistic((props) => ({
 import { router } from '@inertiajs/react'
 
 router.optimistic((props) => ({
-    ...props,
     post: {
         ...props.post,
         likes: props.post.likes + 1,
@@ -43,7 +41,6 @@ router.optimistic((props) => ({
 import { router } from '@inertiajs/svelte'
 
 router.optimistic((props) => ({
-    ...props,
     post: {
         ...props.post,
         likes: props.post.likes + 1,
@@ -53,11 +50,11 @@ router.optimistic((props) => ({
 
 </CodeGroup>
 
-The optimistic update is applied synchronously to the current page's props, so your component re-renders immediately with the new values. When the server responds, Inertia replaces the optimistic data with the server's response. If the request fails, the props are automatically reverted to their original values.
+The optimistic update is applied immediately to the current page's props, so your component re-renders with the new values before the request is sent. When the server responds, Inertia replaces the optimistic data with the server's response. If the request fails, the props are automatically reverted to their original values.
 
 ## Form Component
 
-The `<Form>` component supports optimistic updates via the `optimistic` prop. The callback receives the current page props and the form data being submitted.
+The `<Form>` component supports optimistic updates via the `optimistic` prop. Since the component manages input data internally, the form data is provided as a second callback argument.
 
 <CodeGroup>
 
@@ -104,8 +101,6 @@ The `<Form>` component supports optimistic updates via the `optimistic` prop. Th
 
 </CodeGroup>
 
-The `<Form>` component manages input data internally, so the form data is provided as a second callback argument. The callback should return a partial props update, just like router visits and `useForm`.
-
 ## Form Helper
 
 The `useForm` helper also supports optimistic updates via the same `optimistic()` method.
@@ -124,7 +119,6 @@ const form = useForm({
 
 function save() {
     form.optimistic((props) => ({
-        ...props,
         posts: [...props.posts, { title: form.title }],
     })).post('/posts')
 }
@@ -147,7 +141,6 @@ export default function Posts({ posts }) {
     function save(e) {
         e.preventDefault()
         optimistic((props) => ({
-            ...props,
             posts: [...props.posts, { title: data.title }],
         }))
         post('/posts')
@@ -174,7 +167,6 @@ const form = useForm({
 
 function save() {
     form.optimistic((props) => ({
-        ...props,
         posts: [...props.posts, { title: form.title }],
     })).post('/posts')
 }
@@ -186,11 +178,9 @@ function save() {
 
 </CodeGroup>
 
-The `useForm` optimistic callback operates on page props, just like router visits. The callback receives the current page props and the rollback restores those props to their pre-request state.
-
 ## HTTP Requests
 
-The [`useHttp`](/v3/the-basics/http-requests) hook supports optimistic updates in the same way.
+The [`useHttp`](/v3/the-basics/http-requests) hook supports optimistic updates as well. Since HTTP requests don't interact with Inertia's page props, the optimistic callback receives and updates the form's own data. On failure, the form data is reverted to its pre-request state.
 
 <CodeGroup>
 
